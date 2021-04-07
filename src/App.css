@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+/* roboto font */
+@font-face {
+  font-family: 'jua';
+  src: url('../src/styles/fonts/BMJUA_ttf.ttf');
+}
