@@ -1,5 +1,7 @@
 import { Avatar as MaterialAvatar, AvatarProps as MaterialAvatarProps } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { useState } from 'react';
+
 
 const useStyles = makeStyles((theme: Theme) => 
   createStyles({
@@ -16,17 +18,17 @@ const useStyles = makeStyles((theme: Theme) =>
   })
 );
 
-
 export interface AvatarProps extends MaterialAvatarProps {
-  Onclick: () => void;
+  onClick: () => string;
 }
 
-
-export default function Avatar<AvatarProps>(props: AvatarProps) {
+export default function Avatar(props: AvatarProps) {
   const classes = useStyles();
+  const [imgPath, setImage] = useState(props.src ?? '');
+  
 
   return (
-    <MaterialAvatar {...props}/>
+    <MaterialAvatar {...props} src={ imgPath } onClick={ () => setImage(props.onClick()) } />
   );
 }
 
