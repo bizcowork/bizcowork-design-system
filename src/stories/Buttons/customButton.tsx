@@ -7,7 +7,7 @@ import { green, purple } from '@material-ui/core/colors';
 
 
 export interface CustomButtonProps {
-  label?: string;
+  label: string;
   variant: string;
   color: string;
 }
@@ -15,7 +15,7 @@ export interface CustomButtonProps {
 export default function CustomButton<CustomButtonProps>(props: CustomButtonProps) {
   return (
     <Button {...props}>
-      {props.label ?? 'BUTTON'}
+      {props.label}
     </Button>    
   );
 }
