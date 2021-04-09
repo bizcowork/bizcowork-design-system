@@ -1,6 +1,7 @@
 import { Story, Meta } from '@storybook/react';
 import Avatar, { AvatarProps } from './Avatar';
 
+import DefaultAvatar from '../assets/static/images/dummy-avatar.png';
 import Avatar001 from '../assets/static/images/001.png';
 import Avatar002 from '../assets/static/images/002.png';
 import Avatar003 from '../assets/static/images/003.png';
@@ -33,9 +34,8 @@ const Template: Story<AvatarProps> = args => <Avatar {...args} />;
 
 export const NormalAvatar = Template.bind({});
 NormalAvatar.args = {
-  variant: 'rounded',
-  sizes: '',
-  src: GetImage(),
+  variant: 'circular',
+  src: DefaultAvatar,
   onClick: () => GetImage(),
-  alt: 'naver',
+  alt: 'N',
 };
