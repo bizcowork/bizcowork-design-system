@@ -1,9 +1,9 @@
 import { Story, Meta } from '@storybook/react';
-import BaseButton, { BaseButtonProps } from './Botton';
+import Button, { BaseButtonProps } from './Button';
 
 export default {
-  title: 'Hancup/Component',
-  component: BaseButton,
+  title: 'Hancup/Atomic',
+  component: Button,
   argTypes: {
     label: { control: 'text' },
     backgroundColor: { control: 'color'},
@@ -12,13 +12,11 @@ export default {
   }
 } as Meta;
 
-const Template: Story<BaseButtonProps> = (args) => <BaseButton {...args} />;
+const Template: Story<BaseButtonProps> = (args) => <Button {...args} />;
 
-export const Button = Template.bind({});
-Button.args = {
-  label: 'TestButton',
-  backgroundColor: '#fff;',
-  color: '#00;',
-  border: '1px solid red;',
-  borderRadius: '8px',
+export const NormalButton = Template.bind({});
+NormalButton.args = {
+  label: '테스트 버튼 입니다',
+  backgroundColor: '#2416df;',
+  onClick: () => console.log('onClick'),
 };

@@ -1,17 +1,24 @@
 import styled from 'styled-components';
-import { isPropertySignature } from 'typescript';
+import {useState} from 'react';
 
-interface TitleProps {
-  weight?: number;
-  color?: string;
+export interface TitleProps {
+  fontSize: string;
+  label: string;
 }
 
-export const Title = styled.p<TitleProps>`
-  color: ${props => props.color ? props.color : 'white'};
+const StyledTitle = styled.p<TitleProps>`
+  font-size: ${props => props.fontSize};
+  margin: 0px;
+  /* font-weight: 400; */
+  font-style: bold;
 `;
 
-export const BaseTitle = (props: TitleProps) => {
-  <div>
+export const Title = (props: TitleProps) => {
+  const [size, setSize] = useState('28px');
 
-  </div>;
+  return (
+    <StyledTitle {...props}>
+      {props.label}
+    </StyledTitle>
+  );
 };
