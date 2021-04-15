@@ -1,8 +1,14 @@
+/** @format */
+
 import { createGlobalStyle } from 'styled-components';
 import { normalize } from 'styled-normalize';
 
 const GlobalStyle = createGlobalStyle`
-  ${ normalize }
+  ${normalize}
+
+  html{
+    font-size: 62.5%;
+  }
 
   html,
   body{

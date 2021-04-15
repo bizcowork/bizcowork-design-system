@@ -7,14 +7,6 @@ export interface AvatarProps {
   size: string;
 }
 
-// const handleSize = (size: string) => {
-//   switch (size) {
-//     case 'small':
-//       return 
-//   }
-//   return size;
-// };
-
 const StyledAvatar = styled.img`
   object-fit: scale-down;
   width: 100%;
@@ -22,7 +14,12 @@ const StyledAvatar = styled.img`
   border-radius: 50%;
 `;
 
-const Wrapper = styled.div<{ width: string, height: string }>`
+// const AvatarWrapper = styled.div<{ width: string, height: string }>`
+//   width: ${props => props.width};
+//   height: ${props => props.height};
+// `;
+
+const AvatarWrapper = styled.div<{ width: string, height: string }>`
   width: ${props => props.width};
   height: ${props => props.height};
 `;
@@ -32,8 +29,8 @@ export const Avatar = (props: AvatarProps) => {
   const height = width;
 
   return (
-    <Wrapper width={width} height={height}>
+    <AvatarWrapper width={width} height={height}>
       <StyledAvatar src={props.imgSrc}/>
-    </Wrapper>
+    </AvatarWrapper>
   );
 };

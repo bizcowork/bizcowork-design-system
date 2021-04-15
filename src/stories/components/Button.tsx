@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import React from 'react';
+import {useState} from 'react';
+import theme from '../assets/styles/theme';
 
 export interface BaseButtonProps {
   label: string;
   backgroundColor?: string;
   color: string;
-  borderRadius: string;
+  borderRadius?: string;
   onClick?: () => void;
 }
 
@@ -14,9 +15,8 @@ const ButtonBase = styled.a<BaseButtonProps>`
   font-size: 18px;
   font-style: bold;
   display: inline-block;
-  border-radius: 10px;
-  background-color: #F4762A;
-  color: #FFFFFF;
+  border-radius: ${props => props.theme.borderRadius};
+  background: ${props => props.theme.colors.primary.normal};
   cursor: pointer;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
   user-select: none;
@@ -34,11 +34,11 @@ const ButtonBase = styled.a<BaseButtonProps>`
 export const Button = (
   props: BaseButtonProps
 ) => {
+
   return (
     <ButtonBase onClick={props.onClick} {...props}>
       {props.label}
     </ButtonBase>
   );
 };
-
 export default Button;

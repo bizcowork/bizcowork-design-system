@@ -7,7 +7,7 @@ export interface TitleProps {
 }
 
 const StyledTitle = styled.p<TitleProps>`
-  font-size: ${props => props.fontSize};
+  font-size: ${props => props.theme.fontSize.textLarge};
   margin: 0px;
   /* font-weight: 400; */
   font-style: bold;
