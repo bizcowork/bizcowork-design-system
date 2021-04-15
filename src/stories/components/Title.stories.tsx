@@ -13,6 +13,5 @@ const Template: Story<TitleProps> = (args) => <Title {...args} />;
 
 export const HeaderTitle = Template.bind({});
 HeaderTitle.args = {
-  fontSize: '30px',
   label: 'Title...',
 };

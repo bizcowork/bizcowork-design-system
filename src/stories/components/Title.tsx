@@ -7,10 +7,12 @@ export interface TitleProps {
 }
 
 const StyledTitle = styled.p<TitleProps>`
-  font-size: ${props => props.theme.fontSize.textLarge};
+  font-size: ${props => props.theme.fontSize.h1};
   margin: 0px;
-  /* font-weight: 400; */
-  font-style: bold;
+  padding: 8px 16px;
+  display: inline-block;
+  background-color: #b9e7b9;
+  font-weight: 900;
 `;
 
 export const Title = (props: TitleProps) => {

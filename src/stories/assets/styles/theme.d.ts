@@ -7,15 +7,21 @@ const fontSize = {
 	textSmall: calcRem(14),
 	textBase: calcRem(16),
 	textLarge: calcRem(18),
-	titleSmall: calcRem(20),
-	titleBase: calcRem(22),
-	titleLarge: calcRem(24),
 	h1: calcRem(52),
 	h2: calcRem(46),
 	h3: calcRem(40),
 	h4: calcRem(36),
 	h5: calcRem(30),
 	h6: calcRem(24),
+};
+
+const fontWeight = {
+	thin: 100,
+	light: 300,
+	regular: 400,
+	medium: 500,
+	bold: 700,
+	black: 900,
 };
 
 const compSize = {
@@ -36,14 +42,7 @@ const colors = {};
 
 const theme: DefaultTheme = {
 	borderRadius: calcRem(15),
-	// fontSize: {
-	// 	textSmall: '10px',
-	// 	textBase: '12px',
-	// 	textLarge: '14px',
-	// 	titleSmall: '20px',
-	// 	titleBase: '24px',
-	// 	titleLarge: '28px',
-	// },
+
 	fontSize,
 	colors: {
 		primary: {
