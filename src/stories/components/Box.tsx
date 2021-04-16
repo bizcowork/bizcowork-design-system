@@ -3,20 +3,25 @@ import styled from 'styled-components';
 export interface BoxProps {
   height: string;
   width: string;
-  borderRadius: string;
-  imgSrc: string;
+  border?: string;
+  borderRadius?: string;
+  backgroundColor?: string;
+  opacity?: number;
 }
 
-// const StyledBox = styled.img<BoxProps>`
-//   border-radius: 50%;
-//   height: 48px;
-//   width: 48px;
-// `;
+const StyledBox = styled.div<BoxProps>`
+  height: ${props => props.height};
+  width: ${props => props.width};
+  border: ${props => props.border ? props.border : props.theme.border.simple };
+  border-radius: ${props => props.borderRadius ? props.borderRadius : props.theme.borderRadius.radius15};
+  background-color: ${props => props.backgroundColor ? props.backgroundColor : '#FFFFFF' };
+  opacity: ${props => props.opacity ? props.opacity : props.theme.opacity.max};
+`;
 
-// export const Box = (props: BoxProps) => {
-//   return (
-//     <div>
-//       <StyledBox {...props}/>
-//     </div>
-//     );
-// };
+export const Box = (props: BoxProps) => {
+  return (
+    <StyledBox {...props}>
+
+    </StyledBox>
+  );
+};

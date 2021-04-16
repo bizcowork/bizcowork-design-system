@@ -14,11 +14,6 @@ const StyledAvatar = styled.img`
   border-radius: 50%;
 `;
 
-// const AvatarWrapper = styled.div<{ width: string, height: string }>`
-//   width: ${props => props.width};
-//   height: ${props => props.height};
-// `;
-
 const AvatarWrapper = styled.div<{ width: string, height: string }>`
   width: ${props => props.width};
   height: ${props => props.height};

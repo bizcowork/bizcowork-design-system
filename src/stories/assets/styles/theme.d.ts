@@ -41,12 +41,29 @@ const borderRadius = {
 	radiusHalf: '50%',
 };
 
-const colors = {};
+const opacity = {
+	none: 0,
+	opacity10: 0.1,
+	opacity30: 0.3,
+	opacity50: 0.5,
+	opacity70: 0.7,
+	opacity90: 0.9,
+	max: 1,
+};
+
+const border = {
+	simple: '0.5px solid #D3D3D3',
+	normal: '1px solid #D3D3D3',
+	thick: '1.5px solid #696969',
+	bold: '2px solid #000000',
+	black: '3px solid #000000',
+};
 
 const theme: DefaultTheme = {
 	borderRadius,
-
+	opacity,
 	fontSize,
+	border,
 	colors: {
 		primary: {
 			normal: '#F4762A',

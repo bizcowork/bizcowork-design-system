@@ -9,7 +9,8 @@ declare module 'styled-components' {
 		borderRadius;
 		fontSize;
 		colors;
-		// opacity;
+		border;
+		opacity;
 		// shadow;
 	}
 }
@@ -49,11 +50,13 @@ interface colors {
 }
 
 interface opacity {
-	opacity10: string;
-	opacity30: string;
-	opacity50: string;
-	opacity70: string;
-	opacity90: string;
+	none: number;
+	opacity10: number;
+	opacity30: number;
+	opacity50: number;
+	opacity70: number;
+	opacity90: number;
+	opacityNone: number;
 }
 
 interface shadow {
@@ -62,4 +65,12 @@ interface shadow {
 	regularShadow: string;
 	largeShadow: string;
 	xLargeShadow: string;
+}
+
+interface border {
+	simple: string;
+	normal: string;
+	thick: string;
+	bold: string;
+	black: string;
 }
