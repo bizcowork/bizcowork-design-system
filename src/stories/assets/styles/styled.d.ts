@@ -11,7 +11,7 @@ declare module 'styled-components' {
 		colors;
 		border;
 		opacity;
-		// shadow;
+		boxShadow;
 	}
 }
 
@@ -59,18 +59,18 @@ interface opacity {
 	opacityNone: number;
 }
 
-interface shadow {
-	impleShadow: string;
-	smallShadow: string;
-	regularShadow: string;
-	largeShadow: string;
-	xLargeShadow: string;
-}
-
 interface border {
 	simple: string;
 	normal: string;
 	thick: string;
 	bold: string;
 	black: string;
+}
+
+interface boxShadow {
+	none: string;
+	small: string;
+	regular: string;
+	large: string;
+	huge: string;
 }

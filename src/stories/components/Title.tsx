@@ -1,26 +1,46 @@
 import styled from 'styled-components';
-import {useState} from 'react';
+import theme from '../assets/styles/theme.d';
 
 export interface TitleProps {
-  fontSize: string;
-  label: string;
+  isTitle: boolean;
+  size?: number;
+  text: string;
+  align?: 'left' | 'center' | 'right';
+}
+
+function calcFontSize(size = 3) {
+  switch (size) {
+    case 1:
+      return theme.fontSize.h1;
+    case 2:
+      return theme.fontSize.h2;
+    case 3:
+      return theme.fontSize.h3;
+    case 4:
+      return theme.fontSize.h4;
+    case 5:
+      return theme.fontSize.h5;
+    case 6:
+      return theme.fontSize.h6;
+    default:
+      return theme.fontSize.h3;
+  }
 }
 
 const StyledTitle = styled.p<TitleProps>`
-  font-size: ${props => props.theme.fontSize.h1};
-  margin: 0px;
+  font-weight: ${props => props.isTitle ? 700 : 300 };
+  font-size: ${props => props.size ? calcFontSize(props.size) : props.theme.fontSize.h3};
   padding: 8px 16px;
+  margin: 0px;
   display: inline-block;
-  background-color: #b9e7b9;
-  font-weight: 900;
+  text-align: ${props => props.align ? props.align : 'left'};
 `;
 
 export const Title = (props: TitleProps) => {
-  const [size, setSize] = useState('28px');
 
   return (
     <StyledTitle {...props}>
-      {props.label}
+      {props.text}
     </StyledTitle>
   );
 };

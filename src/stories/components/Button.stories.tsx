@@ -2,7 +2,7 @@ import { Story, Meta } from '@storybook/react';
 import Button, { BaseButtonProps } from './Button';
 
 export default {
-  title: 'Hancup/Atomic',
+  title: 'Atomic/Button',
   component: Button,
   argTypes: {
     label: { control: 'text' },

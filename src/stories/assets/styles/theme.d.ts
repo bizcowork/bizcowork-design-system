@@ -52,11 +52,20 @@ const opacity = {
 };
 
 const border = {
-	simple: '0.5px solid #D3D3D3',
-	normal: '1px solid #D3D3D3',
-	thick: '1.5px solid #696969',
-	bold: '2px solid #000000',
-	black: '3px solid #000000',
+	none: 'none',
+	simple: `${calcRem(0.5)} solid #D3D3D3`,
+	normal: `${calcRem(1)} solid #D3D3D3`,
+	thick: `${calcRem(2)} solid #696969`,
+	bold: `${calcRem(4)} solid #000000`,
+	black: `${calcRem(6)} solid #000000`,
+};
+
+const boxShadow = {
+	none: 'none',
+	small: `${calcRem(0)} ${calcRem(2)} ${calcRem(3)} rgba(0, 0, 0, 0.20)`,
+	regular: `${calcRem(0)} ${calcRem(6)} ${calcRem(9)} rgba(0, 0, 0, 0.20)`,
+	large: `${calcRem(0)} ${calcRem(12)} ${calcRem(20)} rgba(0, 0, 0, 0.20)`,
+	huge: `${calcRem(0)} ${calcRem(20)} ${calcRem(36)} rgba(0, 0, 0, 0.25)`,
 };
 
 const theme: DefaultTheme = {
@@ -64,6 +73,7 @@ const theme: DefaultTheme = {
 	opacity,
 	fontSize,
 	border,
+	boxShadow,
 	colors: {
 		primary: {
 			normal: '#F4762A',

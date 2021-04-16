@@ -3,7 +3,7 @@ import { Avatar, AvatarProps } from './Avatar';
 import avatarImg from '../assets/static/images/006.png';
 
 export default {
-  title: 'Hancup/Atomic',
+  title: 'Atomic/Avatar',
   component: Avatar,
   argsTypes: {
     avatarSize: { control: 'number' },
