@@ -31,17 +31,20 @@ const compSize = {
 };
 
 const borderRadius = {
-	borderRadiusNone: calcRem(0),
-	borderRadiusFive: calcRem(10),
-	borderRadiusTen: calcRem(15),
-	borderRadiusFifteen: calcRem(20),
-	borderRadiusTwenty: calcRem(25),
+	radiusNone: calcRem(0),
+	radius03: calcRem(3),
+	radius05: calcRem(5),
+	radius10: calcRem(10),
+	radius15: calcRem(15),
+	radius20: calcRem(20),
+	radius25: calcRem(25),
+	radiusHalf: '50%',
 };
 
 const colors = {};
 
 const theme: DefaultTheme = {
-	borderRadius: calcRem(15),
+	borderRadius,
 
 	fontSize,
 	colors: {

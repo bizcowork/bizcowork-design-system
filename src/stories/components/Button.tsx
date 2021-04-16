@@ -15,7 +15,7 @@ const ButtonBase = styled.a<BaseButtonProps>`
   font-size: 18px;
   font-style: bold;
   display: inline-block;
-  border-radius: ${props => props.theme.borderRadius};
+  border-radius: ${props => props.theme.borderRadius.radius15};
   background: ${props => props.theme.colors.primary.normal};
   cursor: pointer;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
