@@ -1,12 +1,15 @@
 /** @format */
 import { DefaultTheme } from 'styled-components';
-
-const calcRem = (size: number) => `${size / 16}rem`;
+import { calcRem } from './calcUtils';
+import { borderRadiusProps } from './calcUtils';
+import Colors from './themeColors';
 
 const fontSize = {
-  textSmall: calcRem(14),
-  textBase: calcRem(16),
-  textLarge: calcRem(18),
+  textMin: calcRem(8),
+  textSmall: calcRem(11),
+  textBase: calcRem(14),
+  textLarge: calcRem(16),
+  textMax: calcRem(20),
   h1: calcRem(52),
   h2: calcRem(46),
   h3: calcRem(40),
@@ -28,17 +31,6 @@ const compSize = {
   avatarSmall: calcRem(36),
   avatarBase: calcRem(44),
   avatarLarge: calcRem(52),
-};
-
-const borderRadius = {
-  radiusNone: calcRem(0),
-  radius03: calcRem(3),
-  radius05: calcRem(5),
-  radius10: calcRem(10),
-  radius15: calcRem(15),
-  radius20: calcRem(20),
-  radius25: calcRem(25),
-  radiusHalf: '50%',
 };
 
 const opacity = {

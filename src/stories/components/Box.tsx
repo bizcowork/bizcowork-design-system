@@ -1,12 +1,12 @@
 import styled from 'styled-components';
 import theme from '../assets/styles/theme.d';
-import { calcBorderRadius, calcBoxShadow, calcBorder } from '../assets/styles/calcUtils';
+import { calcBorderRadius, calcBoxShadow, calcBorder, borderRadiusProps } from '../assets/styles/calcUtils';
 
 export interface BoxProps {
   height: string;
   width: string;
   border?: string;
-  borderRadius?: number;
+  borderRadius?: borderRadiusProps;
   backgroundColor?: string;
   opacity?: number;
   backgroundImage?: string;

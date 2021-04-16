@@ -1,28 +1,46 @@
 /** @format */
 
 import theme from './theme.d';
+export const calcRem = (size: number) => `${size / 16}rem`;
 
-export function calcBorderRadius(radius: number) {
-  switch (radius) {
-    case 0:
-      return theme.borderRadius.radiusNone;
-    case 3:
-      return theme.borderRadius.radius03;
-    case 5:
-      return theme.borderRadius.radius05;
-    case 10:
-      return theme.borderRadius.radius10;
-    case 15:
-      return theme.borderRadius.radius15;
-    case 20:
-      return theme.borderRadius.radius20;
-    case 25:
-      return theme.borderRadius.radius25;
-    case 50:
-      return theme.borderRadius.radiusHalf;
-    default:
-      return theme.borderRadius.radiusNone;
-  }
+// export function calcBorderRadius(radius: number) {
+//   switch (radius) {
+//     case 0:
+//       return theme.borderRadius.radiusNone;
+//     case 3:
+//       return theme.borderRadius.radius03;
+//     case 5:
+//       return theme.borderRadius.radius05;
+//     case 10:
+//       return theme.borderRadius.radius10;
+//     case 15:
+//       return theme.borderRadius.radius15;
+//     case 20:
+//       return theme.borderRadius.radius20;
+//     case 25:
+//       return theme.borderRadius.radius25;
+//     case 50:
+//       return theme.borderRadius.radiusHalf;
+//     default:
+//       return theme.borderRadius.radiusNone;
+//   }
+// }
+
+export interface borderRadiusProps {
+  lt: number;
+  rt: number;
+  lb: number;
+  rb: number;
+}
+
+export function calcBorderRadius(radius: borderRadiusProps) {
+  const LT = radius.lt;
+  const RT = radius.rt;
+  const LB = radius.lb;
+  const RB = radius.rb;
+
+  const result = `${calcRem(LT)} ${calcRem(RT)} ${calcRem(LB)} ${calcRem(RB)}`;
+  return result;
 }
 
 export function calcBoxShadow(size: string) {

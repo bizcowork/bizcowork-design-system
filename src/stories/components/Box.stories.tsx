@@ -14,12 +14,19 @@ export default {
   },
 };
 
+const radius = {
+  lt: 0,
+  rt: 25,
+  lb: 25,
+  rb: 0,
+};
+
 const Template: Story<BoxProps> = (args) => <Box {...args} />;
 export const NormalBox = Template.bind({});
 NormalBox.args = {
   height: '200px',
   width: '200px',
-  borderRadius: 25,
+  borderRadius: radius,
   backgroundColor: '#fff',
   opacity: 0.7,
   shadow: 'large',
