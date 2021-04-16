@@ -28,19 +28,14 @@ function calcFontSize(size = 3) {
 }
 
 const StyledTitle = styled.p<TitleProps>`
-  font-weight: ${props => props.isTitle ? 700 : 300 };
-  font-size: ${props => props.size ? calcFontSize(props.size) : props.theme.fontSize.h3};
+  font-weight: ${(props) => (props.isTitle ? 700 : 300)};
+  font-size: ${(props) => (props.size ? calcFontSize(props.size) : props.theme.fontSize.h3)};
   padding: 8px 16px;
   margin: 0px;
   display: inline-block;
-  text-align: ${props => props.align ? props.align : 'left'};
+  text-align: ${(props) => (props.align ? props.align : 'left')};
 `;
 
 export const Title = (props: TitleProps) => {
-
-  return (
-    <StyledTitle {...props}>
-      {props.text}
-    </StyledTitle>
-  );
+  return <StyledTitle {...props}>{props.text}</StyledTitle>;
 };

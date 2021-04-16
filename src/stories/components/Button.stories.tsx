@@ -6,10 +6,10 @@ export default {
   component: Button,
   argTypes: {
     label: { control: 'text' },
-    backgroundColor: { control: 'color'},
+    backgroundColor: { control: 'color' },
     // color: { control: 'color' },
     // border: {control: 'text'}
-  }
+  },
 } as Meta;
 
 const Template: Story<BaseButtonProps> = (args) => <Button {...args} />;

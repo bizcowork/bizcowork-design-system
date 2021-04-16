@@ -8,8 +8,8 @@ export default {
     size: { control: 'number' },
     isTitle: { control: 'boolean' },
     text: { control: 'string' },
-    align: {control: 'string'},
-  }
+    align: { control: 'string' },
+  },
 } as Meta;
 
 const Template: Story<TitleProps> = (args) => <Title {...args} />;

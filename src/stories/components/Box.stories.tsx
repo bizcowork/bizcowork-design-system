@@ -10,8 +10,8 @@ export default {
     opacity: { control: 'number' },
     border: { control: 'string' },
     borderRadius: { control: 'number' },
-    shadow: {control: 'string'},
-  }
+    shadow: { control: 'string' },
+  },
 };
 
 const Template: Story<BoxProps> = (args) => <Box {...args} />;

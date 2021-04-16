@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import {useState} from 'react';
+import { useState } from 'react';
 import theme from '../assets/styles/theme';
 
 export interface BaseButtonProps {
@@ -15,26 +15,23 @@ const ButtonBase = styled.a<BaseButtonProps>`
   font-size: 18px;
   font-style: bold;
   display: inline-block;
-  border-radius: ${props => props.theme.borderRadius.radius15};
-  background: ${props => props.theme.colors.primary.normal};
+  border-radius: ${(props) => props.theme.borderRadius.radius15};
+  background: ${(props) => props.theme.colors.primary.normal};
   cursor: pointer;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
   user-select: none;
 
-  &:hover{
-    background: linear-gradient(#F4772A, #E9610C);
+  &:hover {
+    background: linear-gradient(#f4772a, #e9610c);
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
   }
 
-  &:active{
-    background: linear-gradient(#F4772A, #D5590B);
+  &:active {
+    background: linear-gradient(#f4772a, #d5590b);
   }
 `;
 
-export const Button = (
-  props: BaseButtonProps
-) => {
-
+export const Button = (props: BaseButtonProps) => {
   return (
     <ButtonBase onClick={props.onClick} {...props}>
       {props.label}

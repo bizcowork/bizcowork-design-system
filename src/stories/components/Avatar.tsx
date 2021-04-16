@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 
-
 export interface AvatarProps {
   imgSrc: string;
   size: string;
@@ -14,9 +13,9 @@ const StyledAvatar = styled.img`
   border-radius: 50%;
 `;
 
-const AvatarWrapper = styled.div<{ width: string, height: string }>`
-  width: ${props => props.width};
-  height: ${props => props.height};
+const AvatarWrapper = styled.div<{ width: string; height: string }>`
+  width: ${(props) => props.width};
+  height: ${(props) => props.height};
 `;
 
 export const Avatar = (props: AvatarProps) => {
@@ -25,7 +24,7 @@ export const Avatar = (props: AvatarProps) => {
 
   return (
     <AvatarWrapper width={width} height={height}>
-      <StyledAvatar src={props.imgSrc}/>
+      <StyledAvatar src={props.imgSrc} />
     </AvatarWrapper>
   );
 };

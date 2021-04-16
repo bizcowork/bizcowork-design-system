@@ -7,10 +7,10 @@ export default {
   component: Avatar,
   argsTypes: {
     avatarSize: { control: 'number' },
-  }
+  },
 };
 
-const Template: Story<AvatarProps> = (args) => <Avatar {...args}/>;
+const Template: Story<AvatarProps> = (args) => <Avatar {...args} />;
 export const NormalAvatar = Template.bind({});
 NormalAvatar.args = {
   imgSrc: avatarImg,
