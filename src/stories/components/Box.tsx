@@ -7,6 +7,7 @@ export interface BoxProps {
   borderRadius?: string;
   backgroundColor?: string;
   opacity?: number;
+  backgroundImage?: string;
 }
 
 const StyledBox = styled.div<BoxProps>`
@@ -18,10 +19,17 @@ const StyledBox = styled.div<BoxProps>`
   opacity: ${props => props.opacity ? props.opacity : props.theme.opacity.max};
 `;
 
+const StyledImg = styled.img<BoxProps>`
+  object-fit: scale-down;
+  width: 100%;
+  height: 100%;
+  border-radius: ${props => props.borderRadius ? props.borderRadius : props.theme.borderRadius.radius15 };
+`;
+
 export const Box = (props: BoxProps) => {
   return (
     <StyledBox {...props}>
-
+      <StyledImg src={props.backgroundImage} {...props}/>
     </StyledBox>
   );
 };
