@@ -1,4 +1,4 @@
-const color = {
+export const color = {
   primary: '#039BE5',
   secondary: '#F4511E',
   warning: '#FB8C00',
@@ -8,7 +8,7 @@ const color = {
   black: '#212121',
 };
 
-const primaries = {
+export const primaries = {
   primary100: '#B3E5FC',
   primary200: '#81D4FA',
   primary300: '#4FC3F7',
@@ -20,7 +20,7 @@ const primaries = {
   primary900: '#01579B',
 };
 
-const secondaries = {
+export const secondaries = {
   secondary100: '#FFCCBC',
   secondary200: '#FFAB91',
   secondary300: '#FF8A65',
@@ -32,7 +32,7 @@ const secondaries = {
   secondary900: '#BF360C',
 };
 
-const greies = {
+export const greies = {
   grey100: '#F5F5F5',
   grey200: '#EEEEEE',
   grey300: '#E0E0E0',
@@ -44,7 +44,7 @@ const greies = {
   grey900: '#212121',
 };
 
-const Colors = {
+export const Colors = {
   main: color,
   primary: primaries,
   secondary: secondaries,

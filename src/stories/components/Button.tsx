@@ -18,19 +18,23 @@ const ButtonBase = styled.a<BaseButtonProps>`
   font-size: 18px;
   font-style: bold;
   display: inline-block;
+
   border-radius: ${(props) => (props.borderRadius ? calcBorderRadius(props.borderRadius) : theme.borderRadius)};
-  background: ${(props) => props.theme.colors.primary.normal};
+
+  background: ${(props) => (props.backgroundColor ? props.backgroundColor : props.theme.colors.primary.normal)};
+
+  color: ${(props) => (props.color ? props.color : props.theme.colors.grey.grey100)};
   cursor: pointer;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
   user-select: none;
 
   &:hover {
-    background: linear-gradient(#f4772a, #e9610c);
+    background: ${(props) => props.theme.colors.primary.hover};
     box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.5);
   }
 
   &:active {
-    background: linear-gradient(#f4772a, #d5590b);
+    background: ${(props) => props.theme.colors.primary.active};
   }
 `;
 

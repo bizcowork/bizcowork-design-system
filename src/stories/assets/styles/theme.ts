@@ -1,8 +1,7 @@
 /** @format */
 import { DefaultTheme } from 'styled-components';
 import { calcRem } from './calcUtils';
-// import { borderRadiusProps } from './styled.d';
-import Colors from './themeColors';
+import { primaries, secondaries, greies } from './themeColors';
 
 const fontSize = {
   textMin: calcRem(8),
@@ -79,6 +78,9 @@ const theme: DefaultTheme = {
       hover: '#E9610C',
       active: '#C2510A',
     },
+    // primary: primaries,
+    secondary: secondaries,
+    grey: greies,
   },
 };
 

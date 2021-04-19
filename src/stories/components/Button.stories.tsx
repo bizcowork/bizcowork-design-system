@@ -14,9 +14,13 @@ export default {
 
 const Template: Story<BaseButtonProps> = (args) => <Button {...args} />;
 
+const radius = {
+  ltRtRbLb: [20, 20, 20, 20],
+};
+
 export const NormalButton = Template.bind({});
 NormalButton.args = {
   label: '테스트 버튼 입니다',
-  // backgroundColor: '#2416df;',
+  borderRadius: radius,
   onClick: () => console.log('onClick'),
 };

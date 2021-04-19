@@ -16,12 +16,52 @@ declare module 'styled-components' {
   }
 }
 
-// export interface borderRadius {
-//   lt: string;
-//   rt: string;
-//   lb: string;
-//   rb: string;
-// }
+export const color = {
+  primary: '#039BE5',
+  secondary: '#F4511E',
+  warning: '#FB8C00',
+  success: '#43A047',
+  danger: '#e53935',
+  white: '#F5F5F5',
+  black: '#212121',
+};
+
+export interface primaries {
+  primary100: string;
+  primary200: string;
+  primary300: string;
+  primary400: string;
+  primary500: string;
+  primary600: string;
+  primary700: string;
+  primary800: string;
+  primary900: string;
+}
+
+export interface secondaries {
+  secondary100: string;
+  secondary200: string;
+  secondary300: string;
+  secondary400: string;
+  secondary500: string;
+  secondary600: string;
+  secondary700: string;
+  secondary800: string;
+  secondary900: string;
+}
+
+export interface greies {
+  grey100: string;
+  grey200: string;
+  grey300: string;
+  grey400: string;
+  grey500: string;
+  grey600: string;
+  grey700: string;
+  grey800: string;
+  grey900: string;
+}
+
 interface fontSize {
   textSmall: string;
   textBase: string;
@@ -43,6 +83,9 @@ interface colors {
     hover: string;
     active: string;
   };
+  primariy: primaries;
+  secondary: secondaries;
+  grey: greies;
 }
 
 interface opacity {

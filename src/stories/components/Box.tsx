@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import theme from '../assets/styles/theme';
-import { calcBorderRadius, calcBoxShadow, calcBorder } from '../assets/styles/calcUtils';
+import { calcBorderRadius, calcBoxShadow, calcBorder, calcRem } from '../assets/styles/calcUtils';
 import { borderRadius } from '../assets/styles/styled.d';
 
 export interface BoxProps {
@@ -20,7 +20,7 @@ const StyledBox = styled.div<BoxProps>`
   border: ${(props) => (props.border ? calcBorder(props.border) : props.theme.border.simple)};
 
   border-radius: ${(props) =>
-    props.borderRadius ? calcBorderRadius(props.borderRadius) : calcBorderRadius(theme.borderRadius)};
+    props.borderRadius ? calcBorderRadius(props.borderRadius) : [calcRem(15), calcRem(15), calcRem(15), calcRem(15)]};
 
   background-color: ${(props) => (props.backgroundColor ? props.backgroundColor : '#FFFFFF')};
   opacity: ${(props) => (props.opacity ? props.opacity : props.theme.opacity.max)};
