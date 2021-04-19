@@ -15,17 +15,12 @@ declare module 'styled-components' {
   }
 }
 
-interface borderRadius {
-  radiusNone: string;
-  radius03: string;
-  radius05: string;
-  radius10: string;
-  radius15: string;
-  radius20: string;
-  radius25: string;
-  radiusHalf: string;
+export interface borderRadius {
+  lt: number;
+  rt: number;
+  lb: number;
+  rb: number;
 }
-
 interface fontSize {
   textSmall: string;
   textBase: string;

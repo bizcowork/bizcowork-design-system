@@ -1,7 +1,7 @@
 /** @format */
 import { DefaultTheme } from 'styled-components';
 import { calcRem } from './calcUtils';
-import { borderRadiusProps } from './calcUtils';
+// import { borderRadiusProps } from './styled.d';
 import Colors from './themeColors';
 
 const fontSize = {
@@ -58,6 +58,13 @@ const boxShadow = {
   regular: `${calcRem(0)} ${calcRem(6)} ${calcRem(9)} rgba(0, 0, 0, 0.20)`,
   large: `${calcRem(0)} ${calcRem(12)} ${calcRem(20)} rgba(0, 0, 0, 0.20)`,
   huge: `${calcRem(0)} ${calcRem(20)} ${calcRem(36)} rgba(0, 0, 0, 0.25)`,
+};
+
+export const borderRadius = {
+  LT: 0,
+  RT: 0,
+  LB: 0,
+  RB: 0,
 };
 
 const theme: DefaultTheme = {

@@ -15,10 +15,10 @@ export default {
 };
 
 const radius = {
-  lt: 0,
-  rt: 25,
-  lb: 25,
-  rb: 0,
+  LT: 0,
+  RT: 25,
+  LB: 25,
+  RB: 0,
 };
 
 const Template: Story<BoxProps> = (args) => <Box {...args} />;
