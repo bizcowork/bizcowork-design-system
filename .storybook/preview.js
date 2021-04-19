@@ -2,7 +2,7 @@
 import styled from 'styled-components';
 import { ThemeProvider } from 'styled-components';
 import GlobalStyle from '../src/stories/assets/styles/global-styles';
-import theme from '../src/stories/assets/styles/theme.d';
+import theme from '../src/stories/assets/styles/theme';
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },

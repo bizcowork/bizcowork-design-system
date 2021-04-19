@@ -7,6 +7,7 @@ import 'styled-component';
 declare module 'styled-components' {
   export interface DefaultTheme {
     borderRadius;
+    backgroundImage;
     fontSize;
     colors;
     border;
@@ -15,12 +16,12 @@ declare module 'styled-components' {
   }
 }
 
-export interface borderRadius {
-  lt: number;
-  rt: number;
-  lb: number;
-  rb: number;
-}
+// export interface borderRadius {
+//   lt: string;
+//   rt: string;
+//   lb: string;
+//   rb: string;
+// }
 interface fontSize {
   textSmall: string;
   textBase: string;
@@ -68,4 +69,8 @@ interface boxShadow {
   regular: string;
   large: string;
   huge: string;
+}
+
+interface borderRadius {
+  ltRtRbLb: number[];
 }

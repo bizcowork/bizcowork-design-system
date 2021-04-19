@@ -60,15 +60,15 @@ const boxShadow = {
   huge: `${calcRem(0)} ${calcRem(20)} ${calcRem(36)} rgba(0, 0, 0, 0.25)`,
 };
 
-export const borderRadius = {
-  LT: 0,
-  RT: 0,
-  LB: 0,
-  RB: 0,
+const borderRadius = {
+  ltRtRbLb: [calcRem(15), calcRem(15), calcRem(15), calcRem(15)],
 };
+
+const backgroundImage = '../static/images/006.png';
 
 const theme: DefaultTheme = {
   borderRadius,
+  backgroundImage,
   opacity,
   fontSize,
   border,

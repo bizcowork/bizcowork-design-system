@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import theme from '../assets/styles/theme.d';
+import theme from '../assets/styles/theme';
 
 export interface TitleProps {
   isTitle: boolean;

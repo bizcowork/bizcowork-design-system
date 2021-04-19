@@ -1,12 +1,15 @@
 import styled from 'styled-components';
 import { useState } from 'react';
+import { calcBorderRadius } from '../assets/styles/calcUtils';
+import { borderRadius } from '../assets/styles/styled.d';
 import theme from '../assets/styles/theme';
 
 export interface BaseButtonProps {
   label: string;
   backgroundColor?: string;
   color: string;
-  borderRadius?: string;
+  borderRadius: borderRadius;
+  backgroundImage?: borderRadius;
   onClick?: () => void;
 }
 
@@ -15,7 +18,7 @@ const ButtonBase = styled.a<BaseButtonProps>`
   font-size: 18px;
   font-style: bold;
   display: inline-block;
-  border-radius: ${(props) => props.theme.borderRadius.radius15};
+  border-radius: ${(props) => (props.borderRadius ? calcBorderRadius(props.borderRadius) : theme.borderRadius)};
   background: ${(props) => props.theme.colors.primary.normal};
   cursor: pointer;
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.3);
