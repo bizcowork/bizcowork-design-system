@@ -98,14 +98,6 @@ interface opacity {
   opacityNone: number;
 }
 
-interface border {
-  simple: string;
-  normal: string;
-  thick: string;
-  bold: string;
-  black: string;
-}
-
 interface boxShadow {
   none: string;
   small: string;
@@ -115,3 +107,5 @@ interface boxShadow {
 }
 
 interface borderRadius {}
+
+interface border {}

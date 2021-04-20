@@ -1,7 +1,6 @@
 /** @format */
 
 import theme from './theme';
-import { borderRadius } from './styled';
 
 export const calcRem = (size: number) => `${size / 16}rem`;
 
@@ -38,21 +37,6 @@ export function calcBoxShadow(size: string) {
   }
 }
 
-export function calcBorder(size: string) {
-  switch (size) {
-    case 'none':
-      return theme.border.none;
-    case 'simple':
-      return theme.border.simple;
-    case 'normal':
-      return theme.border.normal;
-    case 'thick':
-      return theme.border.thick;
-    case 'bold':
-      return theme.border.bold;
-    case 'black':
-      return theme.border.black;
-    default:
-      return theme.border.none;
-  }
+export function calcBorder(size: number = 0, style: string = 'solid', color: string = '#000000') {
+  return `${calcRem(size)} ${style} ${color}`;
 }

@@ -8,8 +8,6 @@ export default {
   argTypes: {
     label: { control: 'text' },
     backgroundColor: { control: 'color' },
-    // color: { control: 'color' },
-    // border: {control: 'text'}
   },
 } as Meta;
 
@@ -18,8 +16,8 @@ const Template: Story<BaseButtonProps> = (args) => <Button {...args} />;
 export const NormalButton = Template.bind({});
 NormalButton.args = {
   label: '테스트 버튼 입니다',
-  backgroundColor: theme.colors.secondary.secondary500,
-  borderRadius: theme.borderRadius(20, 'left'),
-  // colors: theme.colors.secondary.secondary500,
-  onClick: () => console.log('onClick'),
+  border: theme.border(3, 'solid', 'grey'),
+  borderRadius: theme.borderRadius(20),
+  onClick: () => alert('on click'),
+  boxShadow: theme.boxShadow.huge,
 };
