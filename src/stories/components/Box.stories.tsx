@@ -19,10 +19,10 @@ export const NormalBox = Template.bind({});
 NormalBox.args = {
   height: '200px',
   width: '200px',
-  border: theme.border(30, 'solid', 'green'),
-  borderRadius: theme.borderRadius(70, 'left'),
-  backgroundColor: theme.colors.secondary.secondary500,
+  // border: theme.border(30, 'solid', 'green'),
+  // borderRadius: theme.borderRadius(70, 'left'),
+  backgroundColor: theme.colors.primary.normal,
   opacity: 1,
   shadow: 'large',
-  backgroundImage: avatarImg,
+  // backgroundImage: avatarImg,
 };

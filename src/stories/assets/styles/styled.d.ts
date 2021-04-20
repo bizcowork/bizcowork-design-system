@@ -78,11 +78,6 @@ interface fontSize {
 }
 
 interface colors {
-  primary: {
-    normal: string;
-    hover: string;
-    active: string;
-  };
   primariy: primaries;
   secondary: secondaries;
   grey: greies;

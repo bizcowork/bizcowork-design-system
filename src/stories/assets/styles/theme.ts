@@ -60,12 +60,7 @@ const theme: DefaultTheme = {
   fontSize,
   boxShadow,
   colors: {
-    primary: {
-      normal: '#F4762A',
-      hover: '#E9610C',
-      active: '#C2510A',
-    },
-    // primary: primaries,
+    primary: primaries,
     secondary: secondaries,
     grey: greies,
   },

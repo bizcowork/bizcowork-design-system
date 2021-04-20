@@ -18,6 +18,8 @@ NormalButton.args = {
   label: '테스트 버튼 입니다',
   border: theme.border(3, 'solid', 'grey'),
   borderRadius: theme.borderRadius(20),
+  backgroundColor: theme.colors.primary.primary400,
   onClick: () => alert('on click'),
   boxShadow: theme.boxShadow.huge,
+  state: 'loading',
 };
