@@ -115,5 +115,5 @@ interface boxShadow {
 }
 
 interface borderRadius {
-  ltRtRbLb: number[];
+  thickness: {};
 }

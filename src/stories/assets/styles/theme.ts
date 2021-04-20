@@ -1,6 +1,6 @@
 /** @format */
 import { DefaultTheme } from 'styled-components';
-import { calcRem } from './calcUtils';
+import { calcRem, calcBorderRadius } from './calcUtils';
 import { primaries, secondaries, greies } from './themeColors';
 
 const fontSize = {
@@ -44,11 +44,21 @@ const opacity = {
 
 const border = {
   none: 'none',
-  simple: `${calcRem(0.5)} solid #D3D3D3`,
-  normal: `${calcRem(1)} solid #D3D3D3`,
-  thick: `${calcRem(2)} solid #696969`,
+  simple: `${calcRem(1)} solid #000000`,
+  normal: `${calcRem(2)} solid #000000`,
+  thick: `${calcRem(3)} solid #000000`,
   bold: `${calcRem(4)} solid #000000`,
-  black: `${calcRem(6)} solid #000000`,
+  black: `${calcRem(5)} solid #000000`,
+};
+
+const borderRadius = {
+  none: calcBorderRadius(0),
+  simple: calcBorderRadius(5),
+  small: calcBorderRadius(10),
+  normal: calcBorderRadius(15),
+  large: calcBorderRadius(20),
+  strong: calcBorderRadius(30),
+  black: calcBorderRadius(50, 'up'),
 };
 
 const boxShadow = {
@@ -56,11 +66,7 @@ const boxShadow = {
   small: `${calcRem(0)} ${calcRem(2)} ${calcRem(3)} rgba(0, 0, 0, 0.20)`,
   regular: `${calcRem(0)} ${calcRem(6)} ${calcRem(9)} rgba(0, 0, 0, 0.20)`,
   large: `${calcRem(0)} ${calcRem(12)} ${calcRem(20)} rgba(0, 0, 0, 0.20)`,
-  huge: `${calcRem(0)} ${calcRem(20)} ${calcRem(36)} rgba(0, 0, 0, 0.25)`,
-};
-
-const borderRadius = {
-  ltRtRbLb: [calcRem(15), calcRem(15), calcRem(15), calcRem(15)],
+  huge: `${calcRem(0)} ${calcRem(26)} ${calcRem(36)} rgba(0, 0, 0, 0.25)`,
 };
 
 const backgroundImage = '../static/images/006.png';

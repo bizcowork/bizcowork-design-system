@@ -1,5 +1,6 @@
 import { Story, Meta } from '@storybook/react';
 import Button, { BaseButtonProps } from './Button';
+import theme from '../assets/styles/theme';
 
 export default {
   title: 'Atomic/Button',
@@ -14,13 +15,11 @@ export default {
 
 const Template: Story<BaseButtonProps> = (args) => <Button {...args} />;
 
-const radius = {
-  ltRtRbLb: [20, 20, 20, 20],
-};
-
 export const NormalButton = Template.bind({});
 NormalButton.args = {
   label: '테스트 버튼 입니다',
-  borderRadius: radius,
+  backgroundColor: theme.colors.secondary.secondary500,
+  // borderRadius: theme.borderRadius.normal,
+  // colors: theme.colors.secondary.secondary500,
   onClick: () => console.log('onClick'),
 };
