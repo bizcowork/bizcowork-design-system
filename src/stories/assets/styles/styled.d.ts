@@ -114,6 +114,4 @@ interface boxShadow {
   huge: string;
 }
 
-interface borderRadius {
-  thickness: {};
-}
+interface borderRadius {}

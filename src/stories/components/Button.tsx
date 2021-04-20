@@ -21,7 +21,7 @@ const ButtonBase = styled.a<BaseButtonProps>`
   display: inline-block;
 
   border: ${(props) => (props.border ? props.border : props.theme.border.normal)};
-  border-radius: ${(props) => (props.borderRadius ? props.borderRadius : theme.borderRadius)};
+  border-radius: ${(props) => (props.borderRadius ? props.borderRadius : props.theme.borderRadius)};
 
   background: ${(props) => (props.backgroundColor ? props.backgroundColor : props.theme.colors.primary.normal)};
 

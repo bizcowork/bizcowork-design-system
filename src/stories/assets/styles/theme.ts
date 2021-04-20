@@ -1,6 +1,6 @@
 /** @format */
 import { DefaultTheme } from 'styled-components';
-import { calcRem, calcBorderRadius } from './calcUtils';
+import { calcRem, calcBorderRadius as borderRadius } from './calcUtils';
 import { primaries, secondaries, greies } from './themeColors';
 
 const fontSize = {
@@ -49,16 +49,6 @@ const border = {
   thick: `${calcRem(3)} solid #000000`,
   bold: `${calcRem(4)} solid #000000`,
   black: `${calcRem(5)} solid #000000`,
-};
-
-const borderRadius = {
-  none: calcBorderRadius(0),
-  simple: calcBorderRadius(5),
-  small: calcBorderRadius(10),
-  normal: calcBorderRadius(15),
-  large: calcBorderRadius(20),
-  strong: calcBorderRadius(30),
-  black: calcBorderRadius(50, 'up'),
 };
 
 const boxShadow = {

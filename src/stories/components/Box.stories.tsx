@@ -9,7 +9,6 @@ export default {
   argsTypes: {
     opacity: { control: 'number' },
     border: { control: 'string' },
-    // outline: { control: 'string' },
     borderRadius: { control: 'number' },
     shadow: { control: 'string' },
   },
@@ -21,7 +20,7 @@ NormalBox.args = {
   height: '200px',
   width: '200px',
   border: theme.border.black,
-  borderRadius: theme.borderRadius.black,
+  borderRadius: theme.borderRadius(70, 'left'),
   backgroundColor: theme.colors.secondary.secondary500,
   opacity: 1,
   shadow: 'large',

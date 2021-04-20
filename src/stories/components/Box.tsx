@@ -6,7 +6,7 @@ export interface BoxProps {
   height: string;
   width: string;
   border?: string;
-  borderRadius: borderRadius;
+  borderRadius?: string;
   backgroundColor?: string;
   backgroundImage?: string;
   opacity?: number;
@@ -29,6 +29,6 @@ const StyledBox = styled.div<BoxProps>`
 `;
 
 export const Box = (props: BoxProps) => {
-  console.log('radius: ' + props.backgroundImage);
+  console.log('radius: ' + props.borderRadius);
   return <StyledBox {...props} />;
 };
