@@ -1,179 +1,233 @@
 import styled from 'styled-components';
-import { borderRadius } from '../assets/styles/styled.d';
+import { calcBorderRadius, calcRem } from '../assets/styles/calcUtils';
 import theme from '../assets/styles/theme';
+
+interface ButtonSize {
+  height: string;
+  font: string;
+  padding: string;
+  boxShadow: string;
+}
+
+interface ButtonStateColor {
+  enabled: string;
+  disabled: string;
+  hover: string;
+  active: string;
+  lightFontColor: string;
+  darkFontColor: string;
+}
+
+interface BorderStyle {
+  borderActive: string;
+  borderNegative: string;
+  borderStyle: string;
+  borderColor: string;
+}
+
+interface ButtonFigure {
+  colors: ButtonStateColor;
+  border: BorderStyle;
+  disabled: boolean;
+}
+
+// interface ButtonColorSet {
+//   default: string;
+//   hover: string;
+//   active: string;
+//   disabled: string;
+// }
 
 export interface BaseButtonProps {
   label: string;
-  state: 'enabled' | 'disabled' | 'hover' | 'active' | 'loading';
-  colorType: 'primary' | 'secondary' | 'mono';
-  color: string;
-  border: string;
-  boxShadow?: typeof theme.boxShadow;
-  borderRadius: borderRadius;
-  cursor: boolean;
-  loadingImage?: string;
+  type: 'default' | 'outline' | 'inverted' | 'block';
+  color: 'primary' | 'secondary' | 'mono';
+  size: 'small' | 'default' | 'large' | 'hulk';
+  backgroundImage: string;
+  isDisabled: boolean;
   onClick?: () => void;
 }
 
-const ButtonBase = styled.a<BaseButtonProps>`
-  min-height: 40px;
-  padding: 8px 16px;
-  font-size: 18px;
-  font-style: bold;
-  display: inline-block;
+// button 크기에 따라 폰트크기, 패딩, 높이 변경 함수
+const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default') => {
+  let buttonSize: ButtonSize;
+  switch (size) {
+    case 'small':
+      buttonSize = {
+        height: `${calcRem(48)}`,
+        font: `${calcRem(20)}`,
+        padding: `${calcRem(12)} ${calcRem(24)}`,
+        boxShadow: theme.boxShadow.tiny,
+      };
+      break;
+    case 'default':
+      buttonSize = {
+        height: `${calcRem(56)}`,
+        font: `${calcRem(24)}`,
+        padding: `${calcRem(14)} ${calcRem(36)}`,
+        boxShadow: theme.boxShadow.tiny,
+      };
+      break;
+    case 'large':
+      buttonSize = {
+        height: `${calcRem(72)}`,
+        font: `${calcRem(32)}`,
+        padding: `${calcRem(17)} ${calcRem(50)}`,
+        boxShadow: theme.boxShadow.small,
+      };
+      break;
+    case 'hulk':
+      buttonSize = {
+        height: `${calcRem(90)}`,
+        font: `${calcRem(40)}`,
+        padding: `${calcRem(20)} ${calcRem(50)}`,
+        boxShadow: theme.boxShadow.default,
+      };
+      break;
+  }
+  return buttonSize;
+};
 
+const setButtonFigure = (
+  color: 'primary' | 'secondary' | 'mono' = 'primary',
+  type: 'default' | 'outline' | 'inverted' | 'block' = 'default',
+  disabled: boolean = false,
+): ButtonFigure => {
+  switch (type) {
+    case 'default' || 'block':
+      return {
+        colors: {
+          enabled: theme.colors[color].tone500,
+          hover: theme.colors[color].tone300,
+          active: theme.colors[color].tone600,
+          disabled: theme.colors[color].tone200,
+          lightFontColor: theme.colors['mono'].tone100,
+          darkFontColor: theme.colors[color].tone500,
+        },
+        border: {
+          borderActive: '0px',
+          borderNegative: '2px',
+          borderStyle: 'solid',
+          borderColor: theme.colors[color].tone200,
+        },
+        disabled: disabled ? true : false,
+      };
+    case 'outline':
+      return {
+        colors: {
+          enabled: theme.colors['mono'].tone100,
+          hover: theme.colors[color].tone500,
+          active: theme.colors[color].tone600,
+          disabled: theme.colors['mono'].tone200,
+          lightFontColor: theme.colors[color].tone500,
+          darkFontColor: theme.colors['mono'].tone100,
+        },
+        border: {
+          borderActive: '2px',
+          borderNegative: '4px',
+          borderStyle: 'solid',
+          borderColor: theme.colors[color].tone500,
+        },
+        disabled: disabled ? true : false,
+      };
+    case 'inverted':
+      return {
+        colors: {
+          enabled: theme.colors['mono'].tone100,
+          hover: theme.colors[color].tone200,
+          active: theme.colors['mono'].tone100,
+          disabled: theme.colors['mono'].tone200,
+          lightFontColor: theme.colors[color].tone500,
+          darkFontColor: theme.colors['mono'].tone500,
+        },
+        border: {
+          borderActive: '0px',
+          borderNegative: '2px',
+          borderStyle: 'solid',
+          borderColor: theme.colors[color].tone200,
+        },
+        disabled: disabled ? true : false,
+      };
+    default:
+      return {
+        colors: {
+          enabled: theme.colors[color].tone500,
+          hover: theme.colors[color].tone300,
+          active: theme.colors[color].tone600,
+          disabled: theme.colors[color].tone200,
+          lightFontColor: theme.colors['mono'].tone100,
+          darkFontColor: theme.colors[color].tone500,
+        },
+        border: {
+          borderActive: '0px',
+          borderNegative: '2px',
+          borderStyle: 'solid',
+          borderColor: theme.colors[color].tone200,
+        },
+        disabled: disabled ? true : false,
+      };
+  }
+};
+
+const ButtonBase = styled.a<BaseButtonProps>`
+  /* 크기 및 정렬 */
+  height: ${(props) => calcSize(props.size).height};
+  padding: ${(props) => (props.size ? calcSize(props.size).padding : calcSize().padding)};
+  text-align: center;
+  vertical-align: middle;
+
+  /* font */
+  font-size: ${(props) => (props.size ? calcSize(props.size).font : calcSize().font)};
+  color: ${(props) => setButtonFigure(props.color, props.type).colors.lightFontColor};
+
+  display: ${(props) => (props.type !== 'block' ? 'inline-block' : 'block')};
+  /* cursor: ${(props) => (setButtonFigure(props.color, props.type).disabled === false ? 'pointer' : 'not-allowed')}; */
+
+  /* border */
+  border: ${(props) => setButtonFigure(props.color, props.type).border.borderActive};
+  border-style: solid;
+  border-color: ${(props) => setButtonFigure(props.color, props.type).border.borderColor};
+  border-radius: ${(props) => calcBorderRadius(10)};
+
+  /* background */
+  background: ${(props) =>
+    props.isDisabled
+      ? setButtonFigure(props.color, props.type).colors.disabled
+      : setButtonFigure(props.color, props.type).colors.enabled};
+
+  /* background-image: url(${(props) => (props.backgroundImage ? props.backgroundImage : '')}); */
+  box-shadow: ${(props) => calcSize(props.size).boxShadow};
+  /* background-size: contain; */
+
+  /* 기타 */
   user-select: none;
 
-  cursor: ${(props) => (props.state === 'enabled' ? 'pointer' : 'default')};
-
-  border: ${(props) => (props.border ? props.border : props.theme.border.normal)};
-  border-radius: ${(props) => (props.borderRadius ? props.borderRadius : props.theme.borderRadius)};
-
-  color: ${(props) => (props.color ? props.color : props.theme.colors.mono900)};
-  background: ${(props) => calcButtonState(props.state, props.colorType)};
-  box-shadow: ${(props) => (props.boxShadow ? props.boxShadow : props.theme.boxShadow.none)};
-
-  background-image: url(${(props) => (props.loadingImage && props.state === 'loading' ? props.loadingImage : null)});
-  background-size: contain;
-  text-align: center;
-  /* vertical-align: middle; */
-
   &:hover {
-    background: ${(props) => calcButtonState(props.state, props.colorType)};
+    cursor: ${(props) => (setButtonFigure(props.color, props.type).disabled === false ? 'pointer' : 'not-allowed')};
+    background: ${(props) =>
+      props.isDisabled
+        ? setButtonFigure(props.color, props.type).colors.disabled
+        : setButtonFigure(props.color, props.type).colors.hover};
   }
 
   &:active {
-    background: ${(props) => calcButtonState(props.state, props.colorType)};
+    cursor: ${(props) => (setButtonFigure(props.color, props.type).disabled === false ? 'pointer' : 'not-allowed')};
+    border: ${(props) => (props.isDisabled ? '' : setButtonFigure(props.color, props.type).border.borderNegative)};
+    border-color: ${(props) =>
+      props.isDisabled
+        ? setButtonFigure(props.color, props.type).colors.disabled
+        : setButtonFigure(props.color, props.type).colors.hover};
+    background: ${(props) => setButtonFigure(props.color, props.type).colors.active};
   }
 `;
 
-export function calcButtonState(
-  state: 'enabled' | 'disabled' | 'hover' | 'active' | 'loading',
-  colorType: 'primary' | 'secondary' | 'mono',
-) {
-  console.log(state + ' ' + colorType);
-  if (state === 'enabled' || 'loading' || 'active') {
-    console.log('1st');
-    switch (state) {
-      case 'enabled':
-        return theme.colors.primary500;
-      case 'loading':
-        return theme.colors.primary500;
-      case 'active':
-        return theme.colors.primary500;
-    }
-  } else if (state === 'hover') {
-    console.log('2nd');
-    switch (colorType) {
-      case 'primary':
-        return theme.colors.primary300;
-      case 'secondary':
-        return theme.colors.secondary300;
-      case 'mono':
-        return theme.colors.grey300;
-    }
-  } else if (state === 'disabled') {
-    console.log('3rd');
-    switch (colorType) {
-      case 'primary':
-        return theme.colors.primary200;
-      case 'secondary':
-        return theme.colors.secondary200;
-      case 'mono':
-        return theme.colors.grey200;
-    }
-  }
-}
-
 export function Button(props: BaseButtonProps) {
-  console.log('color: ' + props.colorType);
+  console.log('height: ' + calcSize(props.size).height);
   return (
     <ButtonBase onClick={props.onClick} {...props}>
-      {props.state === 'loading' ? null : props.label}
+      {props.label}
     </ButtonBase>
   );
 }
 
 export default Button;
-
-export interface Sample {
-  label: string;
-  state: 'enabled' | 'disabled' | 'hover' | 'active' | 'loading';
-  colors: 'primary' | 'secondary' | 'grey';
-  buttonType: 'default' | 'outlined' | 'inverted' | 'block' | 'dropdown';
-
-  // button 타입 & 상태로 결정할 수 있는 것들
-  // color: string;
-  // border: string;
-  // cursor: boolean;
-  // loadingImage?: string;
-
-  // 그냥 기본으로 들어갈 것들
-  // boxShadow?: typeof theme.boxShadow;
-  // borderRadius?: borderRadius;
-
-  // onClick
-  onClick?: () => void;
-}
-
-interface ButtonColorSet {
-  default: string;
-  hover: string;
-  active: string;
-  disabled: string;
-}
-
-const setColor = (color: Sample['colors']) => {
-  let colorSet: ButtonColorSet;
-  switch (color) {
-    case 'primary':
-      colorSet = {
-        default: theme.colors.primary500,
-        hover: theme.colors.primary.primary300,
-        active: theme.colors.primary.primary600,
-        disabled: theme.colors.primary.primary200,
-      };
-      break;
-    case 'secondary':
-      colorSet = {
-        default: theme.colors.buttonColor.secondaryButtonSet.default,
-        hover: theme.colors.buttonColor.secondaryButtonSet.over,
-        active: theme.colors.buttonColor.secondaryButtonSet.active,
-        disabled: theme.colors.buttonColor.secondaryButtonSet.outline,
-      };
-      break;
-    case 'grey':
-      colorSet = {
-        default: theme.colors.buttonColor.greyButtonSet.default,
-        hover: theme.colors.buttonColor.greyButtonSet.over,
-        active: theme.colors.buttonColor.greyButtonSet.active,
-        disabled: theme.colors.buttonColor.greyButtonSet.outline,
-      };
-      break;
-  }
-  return colorSet;
-};
-
-// buttonType: 'default' | 'outlined' | 'inverted' | 'block' | 'dropdown';
-const setColorFromColorsType = (color: Sample['colors'] = 'primary', type: Sample['buttonType'] = 'default') => {
-  let colorSet: ButtonColorSet;
-  switch (type) {
-    case 'default':
-      break;
-    case 'outlined':
-      break;
-    case 'inverted':
-      break;
-    case 'block':
-      break;
-    case 'dropdown':
-      break;
-  }
-
-  return null;
-};
-
-const StyledSampleButton = styled.div<Sample>`
-  display: inline-block;
-  height: 40px;
-`;

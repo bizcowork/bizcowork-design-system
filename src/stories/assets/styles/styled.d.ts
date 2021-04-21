@@ -81,10 +81,11 @@ interface opacity {
 
 interface boxShadow {
   none: string;
+  tiny: string;
   small: string;
-  regular: string;
+  default: string;
   large: string;
-  huge: string;
+  hulk: string;
 }
 
 interface borderRadius {}
