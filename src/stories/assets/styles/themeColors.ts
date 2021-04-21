@@ -20,6 +20,13 @@ export const primaries = {
   primary900: '#01579B',
 };
 
+export const primaryButtonSet = {
+  outlined: '#81D4FA',
+  hover: '#4FC3F7',
+  default: '#03A9F4',
+  active: '#039BE5',
+};
+
 export const secondaries = {
   secondary100: '#FFCCBC',
   secondary200: '#FFAB91',
@@ -32,6 +39,12 @@ export const secondaries = {
   secondary900: '#BF360C',
 };
 
+export const secondaryButtonSet = {
+  outlined: '#FFAB91',
+  hover: '#FF8A65',
+  default: '#FF5722',
+  active: '#F4511E',
+};
 export const greies = {
   grey100: '#F5F5F5',
   grey200: '#EEEEEE',
@@ -42,6 +55,12 @@ export const greies = {
   grey700: '#616161',
   grey800: '#424242',
   grey900: '#212121',
+};
+export const greyButtonSet = {
+  outlined: '#EEEEEE',
+  hover: '#E0E0E0',
+  default: '#9E9E9E',
+  active: '#757575',
 };
 
 export const Colors = {
