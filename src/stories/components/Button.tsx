@@ -115,15 +115,15 @@ const setButtonFigure = (
     case 'outline':
       return {
         colors: {
-          enabled: theme.colors['mono'].tone100,
-          hover: theme.colors[color].tone500,
-          active: theme.colors[color].tone600,
+          enabled: theme.colors[color].tone100,
+          hover: theme.colors[color].tone200,
+          active: theme.colors[color].tone100,
           disabled: theme.colors['mono'].tone200,
           lightFontColor: theme.colors[color].tone500,
           darkFontColor: theme.colors['mono'].tone100,
         },
         border: {
-          borderActive: '2px',
+          borderActive: '4px',
           borderNegative: '4px',
           borderStyle: 'solid',
           borderColor: theme.colors[color].tone500,
@@ -134,8 +134,8 @@ const setButtonFigure = (
       return {
         colors: {
           enabled: theme.colors['mono'].tone100,
-          hover: theme.colors[color].tone200,
-          active: theme.colors['mono'].tone100,
+          hover: theme.colors[color].tone100,
+          active: theme.colors[color].tone200,
           disabled: theme.colors['mono'].tone200,
           lightFontColor: theme.colors[color].tone500,
           darkFontColor: theme.colors['mono'].tone500,
@@ -152,7 +152,7 @@ const setButtonFigure = (
       return {
         colors: {
           enabled: theme.colors[color].tone500,
-          hover: theme.colors[color].tone300,
+          hover: theme.colors[color].tone400,
           active: theme.colors[color].tone600,
           disabled: theme.colors[color].tone200,
           lightFontColor: theme.colors['mono'].tone100,
@@ -203,7 +203,7 @@ const ButtonBase = styled.a<BaseButtonProps>`
   user-select: none;
 
   &:hover {
-    cursor: ${(props) => (setButtonFigure(props.color, props.type).disabled === false ? 'pointer' : 'not-allowed')};
+    cursor: ${(props) => (props.isDisabled === false ? 'pointer' : 'not-allowed')};
     background: ${(props) =>
       props.isDisabled
         ? setButtonFigure(props.color, props.type).colors.disabled
@@ -211,13 +211,16 @@ const ButtonBase = styled.a<BaseButtonProps>`
   }
 
   &:active {
-    cursor: ${(props) => (setButtonFigure(props.color, props.type).disabled === false ? 'pointer' : 'not-allowed')};
-    border: ${(props) => (props.isDisabled ? '' : setButtonFigure(props.color, props.type).border.borderNegative)};
+    cursor: ${(props) => (props.isDisabled === false ? 'pointer' : 'not-allowed')};
     border-color: ${(props) =>
       props.isDisabled
         ? setButtonFigure(props.color, props.type).colors.disabled
         : setButtonFigure(props.color, props.type).colors.hover};
-    background: ${(props) => setButtonFigure(props.color, props.type).colors.active};
+    background: ${(props) =>
+      !props.isDisabled
+        ? setButtonFigure(props.color, props.type).colors.active
+        : setButtonFigure(props.color, props.type).colors.disabled};
+    box-shadow: ${(props) => (props.isDisabled ? calcSize(props.size).boxShadow : '0px 0px 0px')};
   }
 `;
 
