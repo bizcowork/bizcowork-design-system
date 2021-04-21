@@ -21,7 +21,7 @@ NormalBox.args = {
   width: '200px',
   // border: theme.border(30, 'solid', 'green'),
   // borderRadius: theme.borderRadius(70, 'left'),
-  backgroundColor: theme.colors.primary.normal,
+  backgroundColor: theme.colors.primary500,
   opacity: 1,
   shadow: 'large',
   // backgroundImage: avatarImg,

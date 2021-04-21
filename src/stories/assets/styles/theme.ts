@@ -1,7 +1,7 @@
 /** @format */
 import { DefaultTheme } from 'styled-components';
 import { calcRem, calcBorderRadius as borderRadius, calcBorder as border } from './calcUtils';
-import { primaries, secondaries, greies } from './themeColors';
+import { colors } from './themeColors';
 
 const fontSize = {
   textMin: calcRem(8),
@@ -59,11 +59,7 @@ const theme: DefaultTheme = {
   opacity,
   fontSize,
   boxShadow,
-  colors: {
-    primary: primaries,
-    secondary: secondaries,
-    grey: greies,
-  },
+  colors,
 };
 
 export default theme;

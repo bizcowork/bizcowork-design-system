@@ -17,8 +17,6 @@ export function calcBorderRadius(radius: number = 0, direction: 'none' | 'up' | 
       return `0 0 ${rem} ${rem}`;
     case 'left':
       return `${rem} 0 0 ${rem}`;
-    default:
-      return `${rem} ${rem} ${rem} ${rem}`;
   }
 }
 
