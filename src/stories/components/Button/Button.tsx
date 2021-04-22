@@ -14,6 +14,7 @@ export interface ButtonProps {
 const ButtonBase = styled.button<{ size: ButtonSize; figure: ButtonFigure; isDisabled: boolean }>`
   /* 크기 및 정렬 */
   height: ${(props) => props.size.height};
+  width: ${(props) => (props.figure.type === 'block' ? '100%' : '')};
   padding: ${(props) => props.size.padding};
   text-align: center;
   vertical-align: middle;
@@ -25,17 +26,15 @@ const ButtonBase = styled.button<{ size: ButtonSize; figure: ButtonFigure; isDis
 
   /* border */
   outline: none;
-
   border: ${(props) => props.figure.border.borderNormal};
   border-style: solid;
-  border-color: ${(props) => props.figure.border.borderColor};
+  border-color: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.border.borderColor)};
   border-radius: ${calcBorderRadius(10)};
 
   /* background */
   background: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.colors.enabled)};
 
   box-shadow: ${(props) => props.size.boxShadow};
-  /* background-size: contain; */
 
   /* 기타 */
   user-select: none;
@@ -43,6 +42,7 @@ const ButtonBase = styled.button<{ size: ButtonSize; figure: ButtonFigure; isDis
   &:hover {
     cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
     background: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.colors.hover)};
+    border-color: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.border.borderColor)};
   }
 
   &:active {
@@ -51,7 +51,7 @@ const ButtonBase = styled.button<{ size: ButtonSize; figure: ButtonFigure; isDis
     box-shadow: ${(props) => (props.isDisabled ? props.size.boxShadow : 'none')};
     border: ${(props) => props.figure.border.borderNormal};
     border-style: solid;
-    border-color: ${(props) => props.figure.border.borderActive};
+    border-color: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.border.borderActive)};
   }
 `;
 
@@ -59,7 +59,12 @@ export function Button(props: ButtonProps) {
   const sizeProps = calcSize(props.size);
   const figureProps = setButtonFigure(props.color, props.type);
   return (
-    <ButtonBase onClick={props.onClick} size={sizeProps} figure={figureProps} isDisabled={props.isDisabled}>
+    <ButtonBase
+      onClick={props.isDisabled ? undefined : props.onClick}
+      size={sizeProps}
+      figure={figureProps}
+      isDisabled={props.isDisabled}
+    >
       {props.label}
     </ButtonBase>
   );
