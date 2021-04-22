@@ -1,7 +1,7 @@
 /** @format */
 
 import theme from '../../assets/styles/theme';
-import { ButtonFigure, ButtonSize } from './types';
+import { ButtonFigure, ButtonSize } from './buttonTypes';
 
 export function calcRem(size: number) {
   return `${size / 16}rem`;
@@ -172,7 +172,7 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       buttonSize = {
         height: `${calcRem(48)}`,
         font: `${calcRem(20)}`,
-        padding: `${calcRem(0)} ${calcRem(24)}`,
+        padding: `${calcRem(0)} ${calcRem(14)}`,
         boxShadow: theme.boxShadow.tiny,
       };
       break;
@@ -180,7 +180,7 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       buttonSize = {
         height: `${calcRem(56)}`,
         font: `${calcRem(24)}`,
-        padding: `${calcRem(0)} ${calcRem(36)}`,
+        padding: `${calcRem(0)} ${calcRem(18)}`,
         boxShadow: theme.boxShadow.tiny,
       };
       break;
@@ -188,7 +188,7 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       buttonSize = {
         height: `${calcRem(72)}`,
         font: `${calcRem(32)}`,
-        padding: `${calcRem(0)} ${calcRem(50)}`,
+        padding: `${calcRem(0)} ${calcRem(26)}`,
         boxShadow: theme.boxShadow.small,
       };
       break;
@@ -196,7 +196,7 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       buttonSize = {
         height: `${calcRem(90)}`,
         font: `${calcRem(40)}`,
-        padding: `${calcRem(0)} ${calcRem(50)}`,
+        padding: `${calcRem(0)} ${calcRem(32)}`,
         boxShadow: theme.boxShadow.default,
       };
       break;
@@ -204,7 +204,7 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       buttonSize = {
         height: `${calcRem(56)}`,
         font: `${calcRem(24)}`,
-        padding: `${calcRem(0)} ${calcRem(36)}`,
+        padding: `${calcRem(0)} ${calcRem(26)}`,
         boxShadow: theme.boxShadow.tiny,
       };
       break;

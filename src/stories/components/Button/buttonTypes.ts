@@ -29,3 +29,8 @@ export interface ButtonFigure {
   disabled: boolean;
   type: 'default' | 'outline' | 'inverted' | 'block';
 }
+
+// export interface ButtonIcon {
+//   iconSrc: string;
+//   isLeft: boolean;
+// }

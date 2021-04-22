@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { calcBoxShadow } from '../assets/styles/calcUtils';
-import { borderRadius } from '../assets/styles/styled.d';
+// import { borderRadius } from '../assets/styles/styled.d';
 
 export interface BoxProps {
   height: string;

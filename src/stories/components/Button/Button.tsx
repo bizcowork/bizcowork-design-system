@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { calcSize, setButtonFigure, calcBorderRadius } from './utils';
-import { ButtonSize, ButtonFigure } from './types';
+import { ButtonSize, ButtonFigure } from './buttonTypes';
 
 export interface ButtonProps {
   label: string;
@@ -8,17 +8,19 @@ export interface ButtonProps {
   color: 'primary' | 'secondary' | 'mono';
   size: 'small' | 'default' | 'large' | 'hulk';
   isDisabled: boolean;
+  iconSrc: string;
+  isIconLeft: boolean;
   onClick?: () => void;
 }
 
-const ButtonBase = styled.button<{ size: ButtonSize; figure: ButtonFigure; isDisabled: boolean }>`
+const StyledButton = styled.button<{ size: ButtonSize; figure: ButtonFigure; isDisabled: boolean }>`
   /* 크기 및 정렬 */
   height: ${(props) => props.size.height};
   width: ${(props) => (props.figure.type === 'block' ? '100%' : '')};
   padding: ${(props) => props.size.padding};
   text-align: center;
   vertical-align: middle;
-  display: ${(props) => (props.figure.type !== 'block' ? 'table-cell' : 'block')};
+  /* display: ${(props) => (props.figure.type !== 'block' ? 'block' : 'block')}; */
 
   /* font */
   font-size: ${(props) => props.size.font};
@@ -55,18 +57,35 @@ const ButtonBase = styled.button<{ size: ButtonSize; figure: ButtonFigure; isDis
   }
 `;
 
+const StyledIcon = styled.img<{ iconSrc: string }>`
+  /* height: 100%;
+  width: 100%; */
+  src: url(${(props) => (props.iconSrc ? props.iconSrc : '')});
+  /* object-fit: scale-down; */
+  /* background-size: cover; */
+  /* outline: none; */
+  /* vertical-align: middle; */
+  /* display: table-column; */
+`;
+
 export function Button(props: ButtonProps) {
   const sizeProps = calcSize(props.size);
   const figureProps = setButtonFigure(props.color, props.type);
+  // const icon = setIconToButton(props.iconSrc);
+
   return (
-    <ButtonBase
+    <StyledButton
       onClick={props.isDisabled ? undefined : props.onClick}
       size={sizeProps}
       figure={figureProps}
       isDisabled={props.isDisabled}
     >
-      {props.label}
-    </ButtonBase>
+      <span>
+        {props.iconSrc && props.isIconLeft ? <img src={props.iconSrc} /> : <div />}
+        {props.label}
+        {props.iconSrc && props.isIconLeft ? <div /> : <img src={props.iconSrc} />}
+      </span>
+    </StyledButton>
   );
 }
 
