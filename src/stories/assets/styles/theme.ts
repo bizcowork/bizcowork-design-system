@@ -1,5 +1,5 @@
 import { DefaultTheme } from 'styled-components';
-import { calcRem, calcBorderRadius as borderRadius, calcBorder as border } from '../../components/Button/utils';
+import { calcRem, calcBorderRadius as borderRadius, calcBorder as border } from '../../utils/functions/utils';
 
 export const primary = {
   tone100: '#B3E5FC',

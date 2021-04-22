@@ -1,7 +1,7 @@
 /** @format */
 
 import theme from '../../assets/styles/theme';
-import { ButtonFigure, ButtonSize } from './buttonTypes';
+import { ButtonFigure, ButtonSize } from '../../components/Button/buttonTypes';
 
 export function calcRem(size: number) {
   return `${size / 16}rem`;

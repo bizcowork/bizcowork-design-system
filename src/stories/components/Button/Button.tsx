@@ -1,6 +1,9 @@
 import styled from 'styled-components';
-import { calcSize, setButtonFigure, calcBorderRadius } from './utils';
+import { calcSize, setButtonFigure, calcBorderRadius } from '../../utils/functions/utils';
 import { ButtonSize, ButtonFigure } from './buttonTypes';
+import { ReactComponent as Home } from './../../assets/static/icons/home_black_24dp.svg';
+import Icon from '../Icon/Icon';
+import home from '../../assets/static/icons/home_black_24dp.svg';
 
 export interface ButtonProps {
   label: string;
@@ -8,8 +11,6 @@ export interface ButtonProps {
   color: 'primary' | 'secondary' | 'mono';
   size: 'small' | 'default' | 'large' | 'hulk';
   isDisabled: boolean;
-  iconSrc: string;
-  isIconLeft: boolean;
   onClick?: () => void;
 }
 
@@ -19,8 +20,10 @@ const StyledButton = styled.button<{ size: ButtonSize; figure: ButtonFigure; isD
   width: ${(props) => (props.figure.type === 'block' ? '100%' : '')};
   padding: ${(props) => props.size.padding};
   text-align: center;
-  vertical-align: middle;
-  /* display: ${(props) => (props.figure.type !== 'block' ? 'block' : 'block')}; */
+  /* vertical-align: middle; */
+  display: ${(props) => (props.figure.type !== 'block' ? 'flex' : 'block')};
+  align-items: center;
+  justify-content: center;
 
   /* font */
   font-size: ${(props) => props.size.font};
@@ -57,16 +60,16 @@ const StyledButton = styled.button<{ size: ButtonSize; figure: ButtonFigure; isD
   }
 `;
 
-const StyledIcon = styled.img<{ iconSrc: string }>`
-  /* height: 100%;
-  width: 100%; */
-  src: url(${(props) => (props.iconSrc ? props.iconSrc : '')});
-  /* object-fit: scale-down; */
-  /* background-size: cover; */
-  /* outline: none; */
-  /* vertical-align: middle; */
-  /* display: table-column; */
-`;
+// const IconWrapper = styled.svg`
+//   height: 100%;
+//   width: 100%;
+// `;
+
+// const StyledIcon = styled.image<{ iconSrc: string }>`
+//   href: url(${(props) => (props.iconSrc ? props.iconSrc : '')});
+//   /* background-size: cover; */
+//   /* display: inline-block; */
+// `;
 
 export function Button(props: ButtonProps) {
   const sizeProps = calcSize(props.size);
@@ -80,11 +83,8 @@ export function Button(props: ButtonProps) {
       figure={figureProps}
       isDisabled={props.isDisabled}
     >
-      <span>
-        {props.iconSrc && props.isIconLeft ? <img src={props.iconSrc} /> : <div />}
-        {props.label}
-        {props.iconSrc && props.isIconLeft ? <div /> : <img src={props.iconSrc} />}
-      </span>
+      <Icon size={Number(sizeProps.height)} src={home} />
+      <span>{props.label}</span>
     </StyledButton>
   );
 }
