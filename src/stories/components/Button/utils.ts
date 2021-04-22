@@ -87,7 +87,7 @@ export const setButtonFigure = (
           borderNormal: `${calcRem(4)}`,
           borderClick: `${calcRem(4)}`,
           borderStyle: 'solid',
-          borderColor: theme.colors[color].tone500,
+          borderColor: theme.colors[color].tone300,
           border: calcBorder(4, 'solid', theme.colors[color].tone200),
           borderActive: `${theme.colors[color].tone200}`,
         },
