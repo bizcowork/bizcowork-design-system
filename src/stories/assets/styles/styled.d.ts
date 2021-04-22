@@ -16,7 +16,7 @@ declare module 'styled-components' {
   }
 }
 
-export interface colors {
+interface colors {
   primary100: string;
   primary200: string;
   primary300: string;
@@ -46,6 +46,14 @@ export interface colors {
   mono700: string;
   mono800: string;
   mono900: string;
+
+  black: string;
+  white: string;
+}
+
+interface blackWhite {
+  black: string;
+  white: string;
 }
 
 interface fontSize {
@@ -61,12 +69,6 @@ interface fontSize {
   h4: string;
   h5: string;
   h6: string;
-}
-
-interface colors {
-  primariy: primary;
-  secondary: secondary;
-  mono: mono;
 }
 
 interface opacity {
@@ -88,6 +90,10 @@ interface boxShadow {
   hulk: string;
 }
 
-interface borderRadius {}
+interface calcBorderRadius {
+  radius: string;
+}
 
-interface border {}
+// interface calcBorder {
+//   border: string;
+// }

@@ -89,14 +89,14 @@ export const mono = {
   tone900: '#212121',
 };
 
-// export const colors = {
-//   primary: primary,
-//   secondary: secondary,
-//   mono: mono,
-// };
+export const blackWhite = {
+  black: '#000000',
+  white: 'rgba(255, 255, 255, 1)',
+};
 
 export const colors = {
   primary: primary,
   secondary: secondary,
   mono: mono,
+  blackWhite: blackWhite,
 };
