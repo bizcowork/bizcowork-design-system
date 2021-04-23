@@ -76,10 +76,8 @@ export function Button(props: ButtonProps) {
       isDisabled={props.isDisabled}
     >
       {/* left icon */}
-      {props.iconPosition !== 'none' && props.iconPosition === 'left' ? (
+      {props.iconPosition !== 'none' && props.iconPosition === 'left' && (
         <Icon iconSize={props.size} iconSrc={props.iconSrc} iconPosition={props.iconPosition} />
-      ) : (
-        <div />
       )}
 
       {/* label */}
@@ -90,10 +88,8 @@ export function Button(props: ButtonProps) {
       )}
 
       {/* right icon */}
-      {props.iconPosition !== 'none' && props.iconPosition === 'right' ? (
+      {props.iconPosition !== 'none' && props.iconPosition === 'right' && (
         <Icon iconSize={props.size} iconSrc={props.iconSrc} iconPosition={props.iconPosition} />
-      ) : (
-        <div />
       )}
     </StyledButton>
   );
