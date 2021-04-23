@@ -140,7 +140,7 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       buttonSize = {
         height: `${calcRem(48)}`,
         font: `${calcRem(20)}`,
-        padding: `${calcRem(0)} ${calcRem(12)}`,
+        padding: `${calcRem(0)} ${calcRem(8)}`,
         boxShadow: theme.boxShadow.tiny,
       };
       break;
@@ -148,7 +148,7 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       buttonSize = {
         height: `${calcRem(56)}`,
         font: `${calcRem(24)}`,
-        padding: `${calcRem(0)} ${calcRem(15)}`,
+        padding: `${calcRem(0)} ${calcRem(12)}`,
         boxShadow: theme.boxShadow.tiny,
       };
       break;
@@ -156,7 +156,7 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       buttonSize = {
         height: `${calcRem(72)}`,
         font: `${calcRem(32)}`,
-        padding: `${calcRem(0)} ${calcRem(22)}`,
+        padding: `${calcRem(0)} ${calcRem(16)}`,
         boxShadow: theme.boxShadow.small,
       };
       break;
@@ -164,7 +164,7 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       buttonSize = {
         height: `${calcRem(90)}`,
         font: `${calcRem(40)}`,
-        padding: `${calcRem(0)} ${calcRem(27)}`,
+        padding: `${calcRem(0)} ${calcRem(22)}`,
         boxShadow: theme.boxShadow.default,
       };
       break;
@@ -178,4 +178,43 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       break;
   }
   return buttonSize;
+};
+
+export const sizeToRem = (size: 'small' | 'default' | 'large' | 'hulk') => {
+  let result: string;
+  switch (size) {
+    case 'small':
+      result = calcRem(20 * 1.16);
+      break;
+    case 'default':
+      result = calcRem(24 * 1.16);
+      break;
+    case 'large':
+      result = calcRem(32 * 1.16);
+      break;
+    case 'hulk':
+      result = calcRem(40 * 1.16);
+      break;
+  }
+  console.log('result: ' + result);
+  return result;
+};
+
+export const setMargin = (position: 'left' | 'right' | 'only' | 'none') => {
+  let margin: string;
+  switch (position) {
+    case 'left':
+      margin = `0 ${calcRem(8)} 0 0`;
+      break;
+    case 'right':
+      margin = `0 0 0 ${calcRem(8)}`;
+      break;
+    case 'only':
+      margin = `0 ${calcRem(4)} 0 ${calcRem(4)}`;
+      break;
+    case 'none':
+      margin = `0 0 0 0`;
+      break;
+  }
+  return margin;
 };

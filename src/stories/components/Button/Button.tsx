@@ -65,7 +65,7 @@ const StyledButton = styled.button<{ size: ButtonSize; figure: ButtonFigure; isD
 export function Button(props: ButtonProps) {
   const sizeProps = calcSize(props.size);
   const figureProps = setButtonFigure(props.color, props.type);
-  // const icon = setIconToButton(props.iconSrc);
+
   console.log('iconSrc: ' + props.iconSrc);
   return (
     <StyledButton
@@ -75,21 +75,21 @@ export function Button(props: ButtonProps) {
       isDisabled={props.isDisabled}
     >
       {/* left icon */}
-      {props.iconSrc ? (
+      {props.iconPosition !== 'none' && props.iconPosition === 'left' ? (
         <Icon iconSize={props.size} iconSrc={props.iconSrc} iconPosition={props.iconPosition} />
       ) : (
         <div />
       )}
 
       {/* label */}
-      {props.iconSrc !== '' ? (
-        <span>{props.label}</span>
-      ) : (
+      {props.iconPosition === 'only' ? (
         <Icon iconSize={props.size} iconSrc={props.iconSrc} iconPosition={props.iconPosition} />
+      ) : (
+        <span>{props.label}</span>
       )}
 
       {/* right icon */}
-      {props.iconSrc ? (
+      {props.iconPosition !== 'none' && props.iconPosition === 'right' ? (
         <Icon iconSize={props.size} iconSrc={props.iconSrc} iconPosition={props.iconPosition} />
       ) : (
         <div />

@@ -21,5 +21,6 @@ export const NormalButton = Template.bind({});
 NormalButton.args = {
   label: '테스트 버튼 입니다',
   size: 'hulk',
-  iconSrc: '',
+  iconSrc: home,
+  iconPosition: 'left',
 };

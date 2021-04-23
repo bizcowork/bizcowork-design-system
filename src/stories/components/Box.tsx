@@ -18,7 +18,7 @@ const StyledBox = styled.div<BoxProps>`
   width: ${(props) => props.width};
 
   border: ${(props) => (props.border ? props.border : props.theme.border.none)};
-  border-radius: ${(props) => (props.borderRadius ? props.borderRadius : props.theme.borderRadius.none)};
+  ${(props) => (props.borderRadius ? props.borderRadius : props.theme.borderRadius.none)};
 
   background-color: ${(props) => (props.backgroundColor ? props.backgroundColor : '#FFFFFF')};
   background-image: url(${(props) => (props.backgroundImage ? props.backgroundImage : `none`)});

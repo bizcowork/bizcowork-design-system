@@ -1,5 +1,5 @@
 import { DefaultTheme } from 'styled-components';
-import { calcRem, calcBorderRadius as borderRadius, calcBorder as border } from '../../utils/functions/utils';
+import { calcRem, calcBorderRadius as borderRadius } from '../../utils/functions/utils';
 
 export const primary = {
   tone100: '#B3E5FC',
@@ -102,7 +102,7 @@ const backgroundImage = '../static/images/006.png';
 const theme: DefaultTheme = {
   // calcBorder,
   // calcBorderRadius,
-  border,
+  // border,
   borderRadius,
   backgroundImage,
   opacity,
