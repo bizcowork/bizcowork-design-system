@@ -22,5 +22,5 @@ NormalButton.args = {
   label: '테스트 버튼 입니다',
   size: 'hulk',
   iconSrc: home,
-  iconPosition: 'left',
+  iconPosition: 'only',
 };

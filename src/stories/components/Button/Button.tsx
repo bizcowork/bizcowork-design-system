@@ -58,7 +58,6 @@ const StyledButton = styled.button<{ figure: ButtonFigure; size: ButtonSize; isD
     box-shadow: ${(props) => (props.isDisabled ? props.size.boxShadow : 'none')};
     border: ${(props) => props.figure.border.borderThickness};
     border-style: solid;
-    /* border-color: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.colors.hover)}; */
     border-color: ${(props) =>
       props.isDisabled ? props.figure.colors.disabled : props.figure.colors.activeBorderColor};
   }
