@@ -11,6 +11,7 @@ const StyledAvatar = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 50%;
+  border: '1rem solid black';
 `;
 
 const AvatarWrapper = styled.div<{ width: string; height: string }>`

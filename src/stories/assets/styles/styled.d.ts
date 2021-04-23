@@ -10,7 +10,7 @@ declare module 'styled-components' {
     backgroundImage;
     fontSize;
     colors;
-    border;
+    // border;
     opacity;
     boxShadow;
   }

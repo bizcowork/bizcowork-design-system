@@ -1,10 +1,15 @@
 /** @format */
 
 import theme from '../../assets/styles/theme';
-import { ButtonFigure, ButtonSize } from './types';
+import { ButtonFigure, ButtonSize } from '../../components/Button/buttonTypes';
 
 export function calcRem(size: number) {
   return `${size / 16}rem`;
+}
+
+export function remToPixel(size: string) {
+  const px = Number(size.split('rem')[0]) * 16 * 1.16;
+  return px;
 }
 
 export function calcBorderRadius(radius: number = 0, direction: 'none' | 'up' | 'right' | 'down' | 'left' = 'none') {
@@ -40,10 +45,6 @@ export function calcBoxShadow(size: string) {
   }
 }
 
-export function calcBorder(size: number = 0, style: string = 'solid', color: string) {
-  return `${calcRem(size)} ${style} ${color}`;
-}
-
 export const setButtonFigure = (
   color: 'primary' | 'secondary' | 'mono' = 'primary',
   type: 'default' | 'outline' | 'inverted' | 'block' = 'default',
@@ -60,12 +61,10 @@ export const setButtonFigure = (
           disabled: theme.colors[color].tone200,
           lightFontColor: theme.colors['mono'].tone100,
           darkFontColor: theme.colors[color].tone500,
+          activeBorderColor: theme.colors[color].tone300,
         },
         border: {
-          border: `${calcBorder(4, 'solid', theme.colors[color].tone500)}`,
-          borderNormal: `${calcRem(4)}`,
-          borderClick: `${calcRem(4)}`,
-          borderStyle: 'solid',
+          borderThickness: `solid ${calcRem(8)}`,
           borderColor: `${theme.colors[color].tone500}`,
           borderActive: `${theme.colors[color].tone200}`,
         },
@@ -82,13 +81,11 @@ export const setButtonFigure = (
           disabled: theme.colors['mono'].tone100,
           lightFontColor: theme.colors[color].tone500,
           darkFontColor: theme.colors['mono'].tone100,
+          activeBorderColor: theme.colors[color].tone300,
         },
         border: {
-          borderNormal: `${calcRem(4)}`,
-          borderClick: `${calcRem(4)}`,
-          borderStyle: 'solid',
+          borderThickness: `solid ${calcRem(8)}`,
           borderColor: theme.colors[color].tone300,
-          border: calcBorder(4, 'solid', theme.colors[color].tone200),
           borderActive: `${theme.colors[color].tone200}`,
         },
         disabled: disabled ? false : true,
@@ -104,13 +101,11 @@ export const setButtonFigure = (
           disabled: theme.colors['mono'].tone100,
           lightFontColor: theme.colors[color].tone500,
           darkFontColor: theme.colors['mono'].tone500,
+          activeBorderColor: theme.colors[color].tone300,
         },
         border: {
-          borderNormal: `${calcRem(4)}`,
-          borderClick: `${calcRem(4)}`,
-          borderStyle: 'solid',
+          borderThickness: `solid ${calcRem(8)}`,
           borderColor: theme.colors['blackWhite'].white,
-          border: calcBorder(0, 'solid', theme.colors['blackWhite'].white),
           borderActive: theme.colors['blackWhite'].white,
         },
         disabled: disabled ? false : true,
@@ -126,42 +121,19 @@ export const setButtonFigure = (
           disabled: theme.colors[color].tone200,
           lightFontColor: theme.colors['mono'].tone100,
           darkFontColor: theme.colors[color].tone500,
+          activeBorderColor: theme.colors[color].tone300,
         },
         border: {
-          borderNormal: `${calcRem(4)}`,
-          borderClick: `${calcRem(4)}`,
-          borderStyle: 'solid',
+          borderThickness: `solid ${calcRem(8)}`,
+          // borderStyle: 'solid',
           borderColor: theme.colors[color].tone500,
-          border: calcBorder(4, 'solid', theme.colors[color].tone500),
           borderActive: `${theme.colors[color].tone200}`,
         },
         disabled: disabled ? false : true,
         type: type,
       };
       break;
-    default:
-      return {
-        colors: {
-          enabled: theme.colors[color].tone500,
-          hover: theme.colors[color].tone400,
-          active: theme.colors[color].tone600,
-          disabled: theme.colors[color].tone200,
-          lightFontColor: theme.colors['mono'].tone100,
-          darkFontColor: theme.colors[color].tone500,
-        },
-        border: {
-          borderNormal: calcRem(4),
-          borderClick: calcRem(4),
-          borderStyle: 'solid',
-          borderColor: theme.colors[color].tone100,
-          border: calcBorder(4, 'solid', theme.colors[color].tone200),
-          borderActive: calcBorder(4, 'solid', theme.colors[color].tone200),
-        },
-        disabled: disabled ? false : true,
-        type: type,
-      };
   }
-  console.log('border color: ' + figure.border.borderColor);
   return figure;
 };
 
@@ -172,7 +144,7 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       buttonSize = {
         height: `${calcRem(48)}`,
         font: `${calcRem(20)}`,
-        padding: `${calcRem(0)} ${calcRem(24)}`,
+        padding: `${calcRem(0)} ${calcRem(8)}`,
         boxShadow: theme.boxShadow.tiny,
       };
       break;
@@ -180,7 +152,7 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       buttonSize = {
         height: `${calcRem(56)}`,
         font: `${calcRem(24)}`,
-        padding: `${calcRem(0)} ${calcRem(36)}`,
+        padding: `${calcRem(0)} ${calcRem(12)}`,
         boxShadow: theme.boxShadow.tiny,
       };
       break;
@@ -188,7 +160,7 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       buttonSize = {
         height: `${calcRem(72)}`,
         font: `${calcRem(32)}`,
-        padding: `${calcRem(0)} ${calcRem(50)}`,
+        padding: `${calcRem(0)} ${calcRem(16)}`,
         boxShadow: theme.boxShadow.small,
       };
       break;
@@ -196,7 +168,7 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       buttonSize = {
         height: `${calcRem(90)}`,
         font: `${calcRem(40)}`,
-        padding: `${calcRem(0)} ${calcRem(50)}`,
+        padding: `${calcRem(0)} ${calcRem(22)}`,
         boxShadow: theme.boxShadow.default,
       };
       break;
@@ -204,10 +176,49 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       buttonSize = {
         height: `${calcRem(56)}`,
         font: `${calcRem(24)}`,
-        padding: `${calcRem(0)} ${calcRem(36)}`,
+        padding: `${calcRem(0)} ${calcRem(26)}`,
         boxShadow: theme.boxShadow.tiny,
       };
       break;
   }
   return buttonSize;
+};
+
+export const sizeToRem = (size: 'small' | 'default' | 'large' | 'hulk') => {
+  let result: string;
+  switch (size) {
+    case 'small':
+      result = calcRem(20 * 1.16);
+      break;
+    case 'default':
+      result = calcRem(24 * 1.16);
+      break;
+    case 'large':
+      result = calcRem(32 * 1.16);
+      break;
+    case 'hulk':
+      result = calcRem(40 * 1.16);
+      break;
+  }
+  console.log('result: ' + result);
+  return result;
+};
+
+export const setMargin = (position: 'left' | 'right' | 'only' | 'none') => {
+  let margin: string;
+  switch (position) {
+    case 'left':
+      margin = `0 ${calcRem(8)} 0 0`;
+      break;
+    case 'right':
+      margin = `0 0 0 ${calcRem(8)}`;
+      break;
+    case 'only':
+      margin = `0 ${calcRem(4)} 0 ${calcRem(4)}`;
+      break;
+    case 'none':
+      margin = `0 0 0 0`;
+      break;
+  }
+  return margin;
 };

@@ -12,14 +12,13 @@ export interface ButtonStateColor {
   active: string;
   lightFontColor: 'primary' | 'secondary' | 'mono';
   darkFontColor: string;
+  activeBorderColor: string;
 }
 
 export interface BorderStyle {
-  borderNormal: string;
-  borderClick: string;
-  borderStyle: string;
+  borderThickness: string;
+  // borderStyle: string;
   borderColor: string;
-  border: string;
   borderActive: string;
 }
 

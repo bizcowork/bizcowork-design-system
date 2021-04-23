@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { calcBoxShadow } from '../assets/styles/calcUtils';
-import { borderRadius } from '../assets/styles/styled.d';
+// import { borderRadius } from '../assets/styles/styled.d';
 
 export interface BoxProps {
   height: string;
@@ -17,8 +17,8 @@ const StyledBox = styled.div<BoxProps>`
   height: ${(props) => props.height};
   width: ${(props) => props.width};
 
-  border: ${(props) => (props.border ? props.border : props.theme.border.none)};
-  border-radius: ${(props) => (props.borderRadius ? props.borderRadius : props.theme.borderRadius.none)};
+  border: ${(props) => (props.border ? props.border : 'none')};
+  ${(props) => (props.borderRadius ? props.borderRadius : props.theme.borderRadius.none)};
 
   background-color: ${(props) => (props.backgroundColor ? props.backgroundColor : '#FFFFFF')};
   background-image: url(${(props) => (props.backgroundImage ? props.backgroundImage : `none`)});
