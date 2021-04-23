@@ -15,11 +15,9 @@ export interface ButtonStateColor {
 }
 
 export interface BorderStyle {
-  borderNormal: string;
-  borderClick: string;
-  borderStyle: string;
+  borderThickness: string;
+  // borderStyle: string;
   borderColor: string;
-  border: string;
   borderActive: string;
 }
 
@@ -29,8 +27,3 @@ export interface ButtonFigure {
   disabled: boolean;
   type: 'default' | 'outline' | 'inverted' | 'block';
 }
-
-// export interface ButtonIcon {
-//   iconSrc: string;
-//   isLeft: boolean;
-// }

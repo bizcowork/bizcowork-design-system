@@ -15,6 +15,7 @@ const Template: Story<IconProps> = (args) => <Icon {...args} />;
 
 export const NormalIcon = Template.bind({});
 NormalIcon.args = {
-  // size: 30,
-  // src: home,
+  iconSize: 'default',
+  iconSrc: home,
+  iconPosition: 'left',
 };

@@ -1,9 +1,8 @@
 import styled from 'styled-components';
-import { calcSize, setButtonFigure, calcBorderRadius } from '../../utils/functions/utils';
+import { calcSize, setButtonFigure, calcBorderRadius, calcRem } from '../../utils/functions/utils';
 import { ButtonSize, ButtonFigure } from './buttonTypes';
-import { ReactComponent as Home } from './../../assets/static/icons/home_black_24dp.svg';
 import Icon from '../Icon/Icon';
-import home from '../../assets/static/icons/home_black_24dp.svg';
+// import home from '../../assets/static/icons/home_black_24dp.svg';
 
 export interface ButtonProps {
   label: string;
@@ -11,6 +10,8 @@ export interface ButtonProps {
   color: 'primary' | 'secondary' | 'mono';
   size: 'small' | 'default' | 'large' | 'hulk';
   isDisabled: boolean;
+  iconSrc: string;
+  iconPosition: 'left' | 'right' | 'only' | 'none';
   onClick?: () => void;
 }
 
@@ -20,6 +21,7 @@ const StyledButton = styled.button<{ size: ButtonSize; figure: ButtonFigure; isD
   width: ${(props) => (props.figure.type === 'block' ? '100%' : '')};
   padding: ${(props) => props.size.padding};
   text-align: center;
+
   /* vertical-align: middle; */
   display: ${(props) => (props.figure.type !== 'block' ? 'flex' : 'block')};
   align-items: center;
@@ -31,8 +33,8 @@ const StyledButton = styled.button<{ size: ButtonSize; figure: ButtonFigure; isD
 
   /* border */
   outline: none;
-  border: ${(props) => props.figure.border.borderNormal};
-  border-style: solid;
+  border: ${(props) => props.figure.border.borderThickness};
+  /* border-style: solid; */
   border-color: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.border.borderColor)};
   border-radius: ${calcBorderRadius(10)};
 
@@ -54,28 +56,17 @@ const StyledButton = styled.button<{ size: ButtonSize; figure: ButtonFigure; isD
     cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
     background: ${(props) => (!props.isDisabled ? props.figure.colors.active : props.figure.colors.disabled)};
     box-shadow: ${(props) => (props.isDisabled ? props.size.boxShadow : 'none')};
-    border: ${(props) => props.figure.border.borderNormal};
+    border: ${(props) => props.figure.border.borderThickness};
     border-style: solid;
     border-color: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.border.borderActive)};
   }
 `;
 
-// const IconWrapper = styled.svg`
-//   height: 100%;
-//   width: 100%;
-// `;
-
-// const StyledIcon = styled.image<{ iconSrc: string }>`
-//   href: url(${(props) => (props.iconSrc ? props.iconSrc : '')});
-//   /* background-size: cover; */
-//   /* display: inline-block; */
-// `;
-
 export function Button(props: ButtonProps) {
   const sizeProps = calcSize(props.size);
   const figureProps = setButtonFigure(props.color, props.type);
   // const icon = setIconToButton(props.iconSrc);
-
+  console.log('iconSrc: ' + props.iconSrc);
   return (
     <StyledButton
       onClick={props.isDisabled ? undefined : props.onClick}
@@ -83,8 +74,26 @@ export function Button(props: ButtonProps) {
       figure={figureProps}
       isDisabled={props.isDisabled}
     >
-      <Icon size={Number(sizeProps.height)} src={home} />
-      <span>{props.label}</span>
+      {/* left icon */}
+      {props.iconSrc ? (
+        <Icon iconSize={props.size} iconSrc={props.iconSrc} iconPosition={props.iconPosition} />
+      ) : (
+        <div />
+      )}
+
+      {/* label */}
+      {props.iconSrc !== '' ? (
+        <span>{props.label}</span>
+      ) : (
+        <Icon iconSize={props.size} iconSrc={props.iconSrc} iconPosition={props.iconPosition} />
+      )}
+
+      {/* right icon */}
+      {props.iconSrc ? (
+        <Icon iconSize={props.size} iconSrc={props.iconSrc} iconPosition={props.iconPosition} />
+      ) : (
+        <div />
+      )}
     </StyledButton>
   );
 }
