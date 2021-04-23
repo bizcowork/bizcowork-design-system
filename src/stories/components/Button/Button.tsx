@@ -15,7 +15,7 @@ export interface ButtonProps {
   onClick?: () => void;
 }
 
-const StyledButton = styled.button<{ size: ButtonSize; figure: ButtonFigure; isDisabled: boolean }>`
+const StyledButton = styled.button<{ figure: ButtonFigure; size: ButtonSize; isDisabled: boolean }>`
   /* 크기 및 정렬 */
   height: ${(props) => props.size.height};
   width: ${(props) => (props.figure.type === 'block' ? '100%' : '')};
@@ -49,16 +49,18 @@ const StyledButton = styled.button<{ size: ButtonSize; figure: ButtonFigure; isD
   &:hover {
     cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
     background: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.colors.hover)};
-    border-color: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.border.borderColor)};
+    border-color: ${(props) => (props.isDisabled ? props.theme.colors.disabled : props.figure.colors.hover)};
   }
 
   &:active {
     cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
-    background: ${(props) => (!props.isDisabled ? props.figure.colors.active : props.figure.colors.disabled)};
+    background: ${(props) => (!props.isDisabled ? props.figure.colors.enabled : props.figure.colors.disabled)};
     box-shadow: ${(props) => (props.isDisabled ? props.size.boxShadow : 'none')};
     border: ${(props) => props.figure.border.borderThickness};
     border-style: solid;
-    border-color: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.border.borderActive)};
+    /* border-color: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.colors.hover)}; */
+    border-color: ${(props) =>
+      props.isDisabled ? props.figure.colors.disabled : props.figure.colors.activeBorderColor};
   }
 `;
 

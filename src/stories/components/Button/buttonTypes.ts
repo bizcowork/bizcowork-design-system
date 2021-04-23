@@ -12,6 +12,7 @@ export interface ButtonStateColor {
   active: string;
   lightFontColor: 'primary' | 'secondary' | 'mono';
   darkFontColor: string;
+  activeBorderColor: string;
 }
 
 export interface BorderStyle {

@@ -17,7 +17,7 @@ const StyledBox = styled.div<BoxProps>`
   height: ${(props) => props.height};
   width: ${(props) => props.width};
 
-  border: ${(props) => (props.border ? props.border : props.theme.border.none)};
+  border: ${(props) => (props.border ? props.border : 'none')};
   ${(props) => (props.borderRadius ? props.borderRadius : props.theme.borderRadius.none)};
 
   background-color: ${(props) => (props.backgroundColor ? props.backgroundColor : '#FFFFFF')};

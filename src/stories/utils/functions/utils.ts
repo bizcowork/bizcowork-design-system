@@ -61,6 +61,7 @@ export const setButtonFigure = (
           disabled: theme.colors[color].tone200,
           lightFontColor: theme.colors['mono'].tone100,
           darkFontColor: theme.colors[color].tone500,
+          activeBorderColor: theme.colors[color].tone300,
         },
         border: {
           borderThickness: `solid ${calcRem(8)}`,
@@ -80,6 +81,7 @@ export const setButtonFigure = (
           disabled: theme.colors['mono'].tone100,
           lightFontColor: theme.colors[color].tone500,
           darkFontColor: theme.colors['mono'].tone100,
+          activeBorderColor: theme.colors[color].tone300,
         },
         border: {
           borderThickness: `solid ${calcRem(8)}`,
@@ -99,6 +101,7 @@ export const setButtonFigure = (
           disabled: theme.colors['mono'].tone100,
           lightFontColor: theme.colors[color].tone500,
           darkFontColor: theme.colors['mono'].tone500,
+          activeBorderColor: theme.colors[color].tone300,
         },
         border: {
           borderThickness: `solid ${calcRem(8)}`,
@@ -118,6 +121,7 @@ export const setButtonFigure = (
           disabled: theme.colors[color].tone200,
           lightFontColor: theme.colors['mono'].tone100,
           darkFontColor: theme.colors[color].tone500,
+          activeBorderColor: theme.colors[color].tone300,
         },
         border: {
           borderThickness: `solid ${calcRem(8)}`,
