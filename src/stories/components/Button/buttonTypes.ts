@@ -17,7 +17,6 @@ export interface ButtonStateColor {
 
 export interface BorderStyle {
   borderThickness: string;
-  // borderStyle: string;
   borderColor: string;
   borderActive: string;
 }

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { calcSize, setButtonFigure, calcBorderRadius, calcRem } from '../../utils/functions/utils';
 import { ButtonSize, ButtonFigure } from './buttonTypes';
 import Icon from '../Icon/Icon';
+import SvgIcon from '../Icon/svgIcon';
 // import home from '../../assets/static/icons/home_black_24dp.svg';
 
 export interface ButtonProps {

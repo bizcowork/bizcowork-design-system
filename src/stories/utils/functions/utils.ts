@@ -174,9 +174,9 @@ export const calcSize = (size: 'small' | 'default' | 'large' | 'hulk' = 'default
       break;
     default:
       buttonSize = {
-        height: `${calcRem(56)}`,
-        font: `${calcRem(24)}`,
-        padding: `${calcRem(0)} ${calcRem(26)}`,
+        height: `${calcRem(48)}`,
+        font: `${calcRem(20)}`,
+        padding: `${calcRem(0)} ${calcRem(8)}`,
         boxShadow: theme.boxShadow.tiny,
       };
       break;

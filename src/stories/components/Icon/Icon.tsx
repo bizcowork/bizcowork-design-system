@@ -24,7 +24,6 @@ const StyledIcon = styled.img<{ iconSrc: string; size: string; position: string 
 function Icon(props: IconProps) {
   const rem = sizeToRem(props.iconSize);
   const margin = setMargin(props.iconPosition);
-  console.log(rem);
 
   return <StyledIcon src={props.iconSrc} size={rem} position={margin} {...props}></StyledIcon>;
 }
