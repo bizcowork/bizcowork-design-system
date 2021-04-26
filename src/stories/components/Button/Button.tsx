@@ -1,9 +1,9 @@
 import styled from 'styled-components';
-import { calcSize, setButtonFigure, calcBorderRadius, calcRem } from '../../utils/functions/utils';
+import { calcBorderRadius, calcRem } from '../../utils/functions/utils';
+import { calcSize, setButtonFigure, iconColor } from './buttonFunc';
 import { ButtonSize, ButtonFigure } from './buttonTypes';
-import Icon from '../Icon/Icon';
 import SvgIcon from '../Icon/svgIcon';
-// import home from '../../assets/static/icons/home_black_24dp.svg';
+import theme from '../../assets/styles/theme';
 
 export interface ButtonProps {
   label: string;
@@ -11,12 +11,18 @@ export interface ButtonProps {
   color: 'primary' | 'secondary' | 'mono';
   size: 'small' | 'default' | 'large' | 'hulk';
   isDisabled: boolean;
-  iconSrc: string;
+  iconComp: typeof SvgIcon;
   iconPosition: 'left' | 'right' | 'only' | 'none';
   onClick?: () => void;
 }
 
-const StyledButton = styled.button<{ figure: ButtonFigure; size: ButtonSize; isDisabled: boolean }>`
+const StyledButton = styled.button<{
+  figure: ButtonFigure;
+  size: ButtonSize;
+  isDisabled: boolean;
+  iconPosition: string;
+  iconComp: typeof SvgIcon;
+}>`
   /* 크기 및 정렬 */
   height: ${(props) => props.size.height};
   width: ${(props) => (props.figure.type === 'block' ? '100%' : '')};
@@ -35,7 +41,7 @@ const StyledButton = styled.button<{ figure: ButtonFigure; size: ButtonSize; isD
   /* border */
   outline: none;
   border: ${(props) => props.figure.border.borderThickness};
-  /* border-style: solid; */
+  border-style: solid;
   border-color: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.border.borderColor)};
   border-radius: ${calcBorderRadius(10)};
 
@@ -66,31 +72,34 @@ const StyledButton = styled.button<{ figure: ButtonFigure; size: ButtonSize; isD
 
 export function Button(props: ButtonProps) {
   const sizeProps = calcSize(props.size);
-  const figureProps = setButtonFigure(props.color, props.type);
+  const figureProps = setButtonFigure(props.color, props.type, props.size);
+  const color = iconColor(props.color, props.type);
+  console.log(figureProps);
 
-  console.log('iconSrc: ' + props.iconSrc);
   return (
     <StyledButton
       onClick={props.isDisabled ? undefined : props.onClick}
       size={sizeProps}
       figure={figureProps}
       isDisabled={props.isDisabled}
+      iconPosition={props.iconPosition}
+      iconComp={props.iconComp}
     >
       {/* left icon */}
       {props.iconPosition !== 'none' && props.iconPosition === 'left' && (
-        <Icon iconSize={props.size} iconSrc={props.iconSrc} iconPosition={props.iconPosition} />
+        <SvgIcon iconColor={color} iconSize={props.size} iconPosition={props.iconPosition} />
       )}
 
       {/* label */}
       {props.iconPosition === 'only' ? (
-        <Icon iconSize={props.size} iconSrc={props.iconSrc} iconPosition={props.iconPosition} />
+        <SvgIcon iconColor={color} iconSize={props.size} iconPosition={props.iconPosition} />
       ) : (
         <span>{props.label}</span>
       )}
 
       {/* right icon */}
       {props.iconPosition !== 'none' && props.iconPosition === 'right' && (
-        <Icon iconSize={props.size} iconSrc={props.iconSrc} iconPosition={props.iconPosition} />
+        <SvgIcon iconColor={color} iconSize={props.size} iconPosition={props.iconPosition} />
       )}
     </StyledButton>
   );

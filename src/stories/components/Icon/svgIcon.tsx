@@ -1,16 +1,23 @@
 import styled from 'styled-components';
-import { ReactComponent as Home } from '../../assets/static/icons/home_black_24dp.svg';
+import { ReactComponent as Home } from '../../assets/static/icons/home.svg';
 import { sizeToFontSize } from './Iconutils';
 import { setMargin } from '../../utils/functions/utils';
 
 export interface SvgIconProps {
-  fill: string;
+  // iconType: string; // 동적으로 아이콘을 임포트해보자
+  iconColor: string;
   iconSize: 'small' | 'default' | 'large' | 'hulk';
   iconPosition: 'left' | 'right' | 'only' | 'none';
 }
 
-const StyledSvgIcon = styled.div<{ position: 'left' | 'right' | 'only' | 'none' }>`
-  margin: ${(props) => (props.position !== 'none' ? props.position : 'none')};
+const StyledSvgIcon = styled.div<{
+  iconColor: string;
+  iconSize: 'small' | 'default' | 'large' | 'hulk';
+  iconMargin: string;
+}>`
+  background-color: 'none';
+  display: flex;
+  margin: ${(props) => props.iconMargin};
 `;
 
 function SvgIcon(props: SvgIconProps) {
@@ -18,8 +25,8 @@ function SvgIcon(props: SvgIconProps) {
   const margin = setMargin(props.iconPosition);
 
   return (
-    <StyledSvgIcon position={props.iconPosition}>
-      <Home width={size} height={size} fill={props.fill} />
+    <StyledSvgIcon iconMargin={margin} iconColor={props.iconColor} iconSize={props.iconSize}>
+      <Home width={size} height={size} fill={props.iconColor} />
     </StyledSvgIcon>
   );
 }

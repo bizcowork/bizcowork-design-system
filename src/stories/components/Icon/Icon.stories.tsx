@@ -1,7 +1,7 @@
 import { Story, Meta } from '@storybook/react';
 import Icon, { IconProps } from './Icon';
 // import { ReactComponent as home } from '../assets/static/icons/home_black_24dp.svg';
-import home from '../../assets/static/icons/home_black_24dp.svg';
+import home from '../../assets/static/icons/home.svg';
 
 export default {
   title: 'Atomic/Icon',

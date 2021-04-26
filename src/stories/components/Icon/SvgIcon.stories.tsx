@@ -7,6 +7,7 @@ export default {
   component: SvgIcon,
   argTypes: {
     size: { control: 'text' },
+    iconColor: { control: 'color' },
   },
 } as Meta;
 
@@ -14,6 +15,6 @@ const Template: Story<SvgIconProps> = (args) => <SvgIcon {...args} />;
 
 export const NormalIcon = Template.bind({});
 NormalIcon.args = {
-  fill: '#000000',
-  iconSize: 'default',
+  // iconColor: '#000000',
+  // iconSize: 'default',
 };

@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { calcBoxShadow } from '../assets/styles/calcUtils';
+import { calcBoxShadow } from '../utils/functions/calcUtils';
 // import { borderRadius } from '../assets/styles/styled.d';
 
 export interface BoxProps {
@@ -29,6 +29,5 @@ const StyledBox = styled.div<BoxProps>`
 `;
 
 export const Box = (props: BoxProps) => {
-  console.log('radius: ' + props.borderRadius);
   return <StyledBox {...props} />;
 };
