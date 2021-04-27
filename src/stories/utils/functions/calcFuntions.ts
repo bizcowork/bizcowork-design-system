@@ -1,7 +1,7 @@
 /** @format */
 
 import theme from '../../assets/styles/theme';
-import { ButtonFigure, ButtonSize } from '../../components/Button/buttonTypes';
+import { direction } from '../types/literalTypes';
 
 export function calcRem(size: number) {
   return `${size / 16}rem`;
@@ -12,7 +12,7 @@ export function remToPixel(size: string) {
   return px;
 }
 
-export function calcBorderRadius(radius: number = 0, direction: 'none' | 'up' | 'right' | 'down' | 'left' = 'none') {
+export function calcBorderRadius(radius: number = 0, direction: direction = 'none') {
   const rem = calcRem(radius);
   switch (direction) {
     case 'none':
@@ -85,3 +85,27 @@ export const setMargin = (position: 'left' | 'right' | 'only' | 'none') => {
   }
   return margin;
 };
+
+export function sizeToFontSize(size: 'small' | 'default' | 'large' | 'hulk') {
+  // 20, 24, 32, 40
+  let result: string;
+  switch (size) {
+    case 'small':
+      result = calcRem(20);
+      break;
+    case 'default':
+      result = calcRem(24);
+      break;
+    case 'large':
+      result = calcRem(32);
+      break;
+    case 'hulk':
+      result = calcRem(40);
+      break;
+  }
+  return result;
+}
+
+export function calcBorder(size: number, color: string = '#FFFFFF', type: string = 'solid') {
+  return `${calcRem(size)} ${type} ${color}`;
+}

@@ -13,7 +13,7 @@ export default {
 const Template: Story<AvatarProps> = (args) => <Avatar {...args} />;
 export const NormalAvatar = Template.bind({});
 NormalAvatar.args = {
-  imgSrc: avatarImg,
-  // border: '5px solid black',
+  // imgSrc: avatarImg,
+  // border: '1rem solid black',
   // size: 'large',
 };

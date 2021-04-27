@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
+import { calcRem } from '../../../utils/functions/calcFuntions';
+import { size } from '../../../utils/types/literalTypes';
 
 export interface AvatarProps {
   imgSrc: string;
-  size: string;
+  size: size;
 }
 
 const StyledAvatar = styled.img`
@@ -11,7 +13,7 @@ const StyledAvatar = styled.img`
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: '1rem solid black';
+  /* border: '1rem solid black'; */
 `;
 
 const AvatarWrapper = styled.div<{ width: string; height: string }>`
@@ -20,7 +22,27 @@ const AvatarWrapper = styled.div<{ width: string; height: string }>`
 `;
 
 export const Avatar = (props: AvatarProps) => {
-  const width = props.size === 'small' ? '36px' : props.size === 'middle' ? '50px' : '75px';
+  const width = (radius: string) => {
+    let size: string;
+    switch (radius) {
+      case 'small':
+        size = calcRem(36);
+        break;
+      case 'default':
+        size = calcRem(50);
+        break;
+      case 'large':
+        size = calcRem(75);
+        break;
+      case 'hulk':
+        size = calcRem(90);
+        break;
+      default:
+        return calcRem(36);
+    }
+    return size;
+  };
+
   const height = width;
 
   return (

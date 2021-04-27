@@ -1,8 +1,8 @@
 import { Story, Meta } from '@storybook/react';
 import Button, { ButtonProps } from './Button';
-import theme from '../../assets/styles/theme';
+import theme from '../../../assets/styles/theme';
 import loading from '../assets/static/images/loading.svg';
-// import home from '../assets/static/icons/home_black_24dp.svg';
+import home from '../assets/static/icons/home_black_24dp.svg';
 // import SvgIcon from '../Icon/svgIcon';
 
 export default {
@@ -22,6 +22,6 @@ export const NormalButton = Template.bind({});
 NormalButton.args = {
   label: '테스트 버튼 입니다',
   size: 'hulk',
-  // iconComp: SvgIcon,
+  iconName: 'home',
   iconPosition: 'only',
 };

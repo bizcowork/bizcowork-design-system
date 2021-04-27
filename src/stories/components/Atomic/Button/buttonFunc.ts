@@ -1,6 +1,6 @@
-import { calcRem } from '../../utils/functions/utils';
+import { calcRem } from '../../../utils/functions/calcFuntions';
 import { ButtonFigure, ButtonSize } from './buttonTypes';
-import theme from '../../assets/styles/theme';
+import theme from '../../../assets/styles/theme';
 
 export const setButtonFigure = (
   color: 'primary' | 'secondary' | 'mono' = 'primary',

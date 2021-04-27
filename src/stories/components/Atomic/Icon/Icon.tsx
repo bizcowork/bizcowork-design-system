@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import { sizeToRem, setMargin } from '../../utils/functions/utils';
-import theme from '../../assets/styles/theme';
+import { sizeToRem, setMargin } from '../../../utils/functions/calcFuntions';
+import theme from '../../../assets/styles/theme';
+import { size, iconPosition } from '../../../utils/types/literalTypes';
 
 export interface IconProps {
-  iconSize: 'small' | 'default' | 'large' | 'hulk';
+  iconSize: size;
   iconSrc: string;
-  iconPosition: 'left' | 'right' | 'only' | 'none';
+  iconPosition: iconPosition;
 }
 
 const StyledIcon = styled.img<{ iconSrc: string; size: string; position: string }>`

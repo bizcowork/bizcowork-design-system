@@ -1,11 +1,12 @@
 import styled from 'styled-components';
-import theme from '../assets/styles/theme';
+import theme from '../../../assets/styles/theme';
+import { align } from '../../../utils/types/literalTypes';
 
 export interface TitleProps {
   isTitle: boolean;
   size?: number;
   text: string;
-  align?: 'left' | 'center' | 'right';
+  align?: align;
 }
 
 function calcFontSize(size = 3) {

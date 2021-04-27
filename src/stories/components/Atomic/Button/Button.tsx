@@ -1,18 +1,18 @@
 import styled from 'styled-components';
-import { calcBorderRadius, calcRem } from '../../utils/functions/utils';
+import { calcBorderRadius, calcRem } from '../../../utils/functions/calcFuntions';
 import { calcSize, setButtonFigure, iconColor } from './buttonFunc';
 import { ButtonSize, ButtonFigure } from './buttonTypes';
-import SvgIcon from '../Icon/svgIcon';
-import theme from '../../assets/styles/theme';
+import Icon from '../Icon/Icon';
+import { size, colors, buttonType, iconPosition } from '../../../utils/types/literalTypes';
 
 export interface ButtonProps {
   label: string;
-  type: 'default' | 'outline' | 'inverted' | 'block';
-  color: 'primary' | 'secondary' | 'mono';
-  size: 'small' | 'default' | 'large' | 'hulk';
+  type: buttonType;
+  color: colors;
+  size: size;
   isDisabled: boolean;
-  iconComp: typeof SvgIcon;
-  iconPosition: 'left' | 'right' | 'only' | 'none';
+  iconName?: string;
+  iconPosition: iconPosition;
   onClick?: () => void;
 }
 
@@ -21,7 +21,7 @@ const StyledButton = styled.button<{
   size: ButtonSize;
   isDisabled: boolean;
   iconPosition: string;
-  iconComp: typeof SvgIcon;
+  // iconName: string;
 }>`
   /* 크기 및 정렬 */
   height: ${(props) => props.size.height};
@@ -74,7 +74,7 @@ export function Button(props: ButtonProps) {
   const sizeProps = calcSize(props.size);
   const figureProps = setButtonFigure(props.color, props.type, props.size);
   const color = iconColor(props.color, props.type);
-  console.log(figureProps);
+  const iconSrc = `../../assets/static/icons/${props.iconName}.svg`;
 
   return (
     <StyledButton
@@ -83,24 +83,11 @@ export function Button(props: ButtonProps) {
       figure={figureProps}
       isDisabled={props.isDisabled}
       iconPosition={props.iconPosition}
-      iconComp={props.iconComp}
     >
-      {/* left icon */}
-      {props.iconPosition !== 'none' && props.iconPosition === 'left' && (
-        <SvgIcon iconColor={color} iconSize={props.size} iconPosition={props.iconPosition} />
+      {props.iconPosition === 'left' && (
+        <Icon iconSrc={iconSrc} iconSize={props.size} iconPosition={props.iconPosition}></Icon>
       )}
-
-      {/* label */}
-      {props.iconPosition === 'only' ? (
-        <SvgIcon iconColor={color} iconSize={props.size} iconPosition={props.iconPosition} />
-      ) : (
-        <span>{props.label}</span>
-      )}
-
-      {/* right icon */}
-      {props.iconPosition !== 'none' && props.iconPosition === 'right' && (
-        <SvgIcon iconColor={color} iconSize={props.size} iconPosition={props.iconPosition} />
-      )}
+      {props.iconPosition !== 'only' && <span>{props.label}</span>}
     </StyledButton>
   );
 }
