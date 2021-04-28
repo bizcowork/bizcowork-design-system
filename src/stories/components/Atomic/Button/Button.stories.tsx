@@ -1,9 +1,5 @@
 import { Story, Meta } from '@storybook/react';
 import Button, { ButtonProps } from './Button';
-import theme from '../../../assets/styles/theme';
-import loading from '../assets/static/images/loading.svg';
-import home from '../assets/static/icons/home_black_24dp.svg';
-// import SvgIcon from '../Icon/svgIcon';
 
 export default {
   title: 'Atomic/Button',
@@ -20,8 +16,6 @@ const buttonIcon = {
 };
 export const NormalButton = Template.bind({});
 NormalButton.args = {
-  label: '테스트 버튼 입니다',
+  // label: '테스트 버튼 입니다',
   size: 'hulk',
-  iconName: 'home',
-  iconPosition: 'only',
 };

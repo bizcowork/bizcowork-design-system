@@ -2,17 +2,17 @@ import styled from 'styled-components';
 import { calcBorderRadius, calcRem } from '../../../utils/functions/calcFuntions';
 import { calcSize, setButtonFigure, iconColor } from './buttonFunc';
 import { ButtonSize, ButtonFigure } from './buttonTypes';
-import Icon from '../Icon/Icon';
-import { size, colors, buttonType, iconPosition } from '../../../utils/types/literalTypes';
+import { size, colors, buttonType, horizontalMargin } from 'utils/types/literalTypes';
+// import { TestIcon } from 'components/atomic/Icon/Icon';
 
 export interface ButtonProps {
-  label: string;
+  label?: string;
   type: buttonType;
-  color: colors;
+  colors: colors;
   size: size;
   isDisabled: boolean;
   iconName?: string;
-  iconPosition: iconPosition;
+  iconPosition?: horizontalMargin;
   onClick?: () => void;
 }
 
@@ -20,8 +20,6 @@ const StyledButton = styled.button<{
   figure: ButtonFigure;
   size: ButtonSize;
   isDisabled: boolean;
-  iconPosition: string;
-  // iconName: string;
 }>`
   /* 크기 및 정렬 */
   height: ${(props) => props.size.height};
@@ -70,24 +68,19 @@ const StyledButton = styled.button<{
   }
 `;
 
+interface ButtonIconPosition {
+  icon?: JSX.Element;
+  position?: horizontalMargin;
+}
+
 export function Button(props: ButtonProps) {
   const sizeProps = calcSize(props.size);
-  const figureProps = setButtonFigure(props.color, props.type, props.size);
-  const color = iconColor(props.color, props.type);
-  const iconSrc = `../../assets/static/icons/${props.iconName}.svg`;
+  const figureProps = setButtonFigure(props.colors, props.type, props.size);
+  const color = iconColor(props.colors, props.type);
 
   return (
-    <StyledButton
-      onClick={props.isDisabled ? undefined : props.onClick}
-      size={sizeProps}
-      figure={figureProps}
-      isDisabled={props.isDisabled}
-      iconPosition={props.iconPosition}
-    >
-      {props.iconPosition === 'left' && (
-        <Icon iconSrc={iconSrc} iconSize={props.size} iconPosition={props.iconPosition}></Icon>
-      )}
-      {props.iconPosition !== 'only' && <span>{props.label}</span>}
+    <StyledButton size={sizeProps} figure={figureProps} isDisabled={props.isDisabled}>
+      {props.label === '' ? 'Button' : props.label}
     </StyledButton>
   );
 }

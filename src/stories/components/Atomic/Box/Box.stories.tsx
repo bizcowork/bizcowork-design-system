@@ -21,11 +21,11 @@ export const NormalBox = Template.bind({});
 NormalBox.args = {
   height: '200px',
   width: '200px',
-  borderThick: 10,
-  borderColor: '#000000',
-  borderRadius: calcBorderRadius(70, 'down'),
-  backgroundColor: theme.colors.primary.tone100,
-  opacity: 1,
-  shadow: 'large',
+  // borderThick: 10,
+  // borderColor: '#8f0e64',
+  // borderRadius: calcBorderRadius(70, 'down'),
+  backgroundColor: theme.colors.secondary.tone100,
+  // opacity: 1,
+  // shadow: 'large',
   // backgroundImage: avatarImg,
 };

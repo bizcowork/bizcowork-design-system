@@ -1,6 +1,5 @@
-import shadows from '@material-ui/core/styles/shadows';
 import styled from 'styled-components';
-import { calcBoxShadow, calcBorder } from '../../../utils/functions/calcFuntions';
+import { calcBoxShadow, calcBorder } from 'utils/functions/calcFuntions';
 
 export interface BoxProps {
   height: string;
@@ -14,17 +13,6 @@ export interface BoxProps {
   shadow?: string;
 }
 
-// const StyledBox = styled.div<{
-//   height: string;
-//   width: string;
-//   borderThick: number;
-//   borderColor: string;
-//   borderRadius: string;
-//   backgroundColor: string;
-//   backgroundImage: string;
-//   opacity: number;
-//   shadow: string;
-// }>`
 const StyledBox = styled.div<BoxProps>`
   height: ${(props) => props.height};
   width: ${(props) => props.width};

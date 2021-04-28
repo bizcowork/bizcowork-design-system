@@ -1,30 +1,19 @@
 import { useEffect, useRef, useState, useCallback, MutableRefObject, Ref } from 'react';
-import { calcRem } from '../../../utils/functions/calcFuntions';
-
-export function useDynamicSVGImport(name: string) {
-  const ImportedIconRef = useRef();
-  const [loading, setLoading] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    try {
-      const importIcon = async () => {
-        // ImportedIconRef.current = (await import(`../../assets/static/icons/${name}.svg`)).ReactComponent;
-        ImportedIconRef.current = (await import(`../../assets/static/icons/${name}.svg`)).ReactComponent;
-        console.log('current: ' + ImportedIconRef.current);
-        importIcon();
-      };
-    } catch (error) {
-      console.log('error: ' + error);
-    } finally {
-      setLoading(false);
-    }
-  });
-  const SvgIcon = ImportedIconRef.current;
-  console.log('svg: ' + SvgIcon);
-  return SvgIcon;
-  // return { SvgIcon: ImportedIconRef.current };
-}
+import { calcRem } from 'utils/functions/calcFuntions';
+import theme from 'assets/styles/theme';
+import { size, colors, horizontalMargin } from 'utils/types/literalTypes';
+import {
+  Check,
+  Delete,
+  Description,
+  Help,
+  Home,
+  Info,
+  MoreHoriz,
+  Notification,
+  Search,
+  Settings,
+} from 'atomic/Icon/iconList';
 
 export function sizeToFontSize(size: 'small' | 'default' | 'large' | 'hulk') {
   // 20, 24, 32, 40
@@ -84,7 +73,7 @@ export function customLoadSvg(src: string, onLoad?: (el: SVGElement) => void) {
   return { svg, svgRef };
 }
 
-export const setMargin = (position: 'left' | 'right' | 'only' | 'none') => {
+export const setMargin = (position: horizontalMargin) => {
   let margin: string;
   switch (position) {
     case 'left':
@@ -96,12 +85,42 @@ export const setMargin = (position: 'left' | 'right' | 'only' | 'none') => {
     case 'only':
       margin = `0 ${calcRem(4)} 0 ${calcRem(4)}`;
       break;
-    case 'none':
-      margin = `0 0 0 0`;
-      break;
     default:
       margin = '0 0 0 0';
       break;
   }
   return margin;
 };
+
+export const iconColor = (
+  color: 'primary' | 'secondary' | 'mono' | 'blackWhite',
+  type: 'default' | 'outline' | 'inverted' | 'block',
+) => {
+  if (color === 'primary' && (type === 'default' || type === 'block')) {
+    return theme.colors.mono.tone100;
+  } else if (color === 'primary' && (type === 'outline' || type === 'inverted')) {
+    return theme.colors.primary.tone500;
+  }
+  if (color === 'secondary' && (type === 'default' || type === 'block')) {
+    return theme.colors.mono.tone100;
+  } else if (color === 'secondary' && (type === 'outline' || type === 'inverted')) {
+    return theme.colors.secondary.tone500;
+  }
+  if (color === 'mono' && (type === 'default' || type === 'block')) {
+    return theme.colors.mono.tone100;
+  } else if (color === 'mono' && (type === 'outline' || type === 'inverted')) {
+    return theme.colors.mono.tone500;
+  }
+};
+
+export function setSvgIcon(name: string) {
+  switch (name) {
+    case 'home':
+      console.log(name);
+      return Home;
+    case 'delete':
+      return Delete;
+    default:
+      return Notification;
+  }
+}
