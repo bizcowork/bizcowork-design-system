@@ -25,5 +25,5 @@ export interface ButtonFigure {
   colors: ButtonStateColor;
   border: BorderStyle;
   disabled: boolean;
-  type: 'default' | 'outline' | 'inverted' | 'block';
+  type: 'default' | 'outline' | 'inverted' | 'block' | 'hidden';
 }

@@ -4,7 +4,7 @@ import theme from '../../../assets/styles/theme';
 
 export const setButtonFigure = (
   color: 'primary' | 'secondary' | 'mono' = 'primary',
-  type: 'default' | 'outline' | 'inverted' | 'block' = 'default',
+  type: 'default' | 'outline' | 'inverted' | 'hidden' | 'block',
   size: 'small' | 'default' | 'large' | 'hulk',
   disabled: boolean = false,
 ): ButtonFigure => {
@@ -85,6 +85,26 @@ export const setButtonFigure = (
           borderThickness: `solid ${calcRem(8)}`,
           borderColor: theme.colors[color].tone500,
           borderActive: theme.colors[color].tone200,
+        },
+        disabled: disabled ? false : true,
+        type: type,
+      };
+      break;
+    case 'hidden':
+      figure = {
+        colors: {
+          enabled: theme.colors['blackWhite'].white,
+          hover: theme.colors[color].tone50,
+          active: theme.colors['blackWhite'].white,
+          disabled: theme.colors['mono'].tone100,
+          lightFontColor: theme.colors[color].tone500,
+          darkFontColor: theme.colors['mono'].tone500,
+          activeBorderColor: theme.colors[color].tone100,
+        },
+        border: {
+          borderThickness: `solid ${calcRem(8)}`,
+          borderColor: theme.colors['blackWhite'].white,
+          borderActive: theme.colors['blackWhite'].white,
         },
         disabled: disabled ? false : true,
         type: type,

@@ -10,6 +10,7 @@ export interface ButtonProps {
   colors: colors;
   size: size;
   isDisabled: boolean;
+  boxShadow?: boolean;
   onClick?: () => void;
 }
 
@@ -17,6 +18,7 @@ const StyledButton = styled.button<{
   figure: ButtonFigure;
   size: ButtonSize;
   isDisabled: boolean;
+  isShadow?: boolean;
 }>`
   /* 크기 및 정렬 */
   height: ${(props) => props.size.height};
@@ -43,7 +45,7 @@ const StyledButton = styled.button<{
   /* background */
   background: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.colors.enabled)};
 
-  box-shadow: ${(props) => props.size.boxShadow};
+  box-shadow: ${(props) => (props.figure.type === 'hidden' ? 'none' : props.size.boxShadow)};
 
   /* 기타 */
   user-select: none;

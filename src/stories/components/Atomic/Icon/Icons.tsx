@@ -11,6 +11,7 @@ import {
   Notification,
   Search,
   Settings,
+  Right,
 } from 'atomic/Icon/iconList';
 import home from 'assets/static/icons/home.svg';
 import { iconColor, sizeToFontSize } from './iconFunc';
@@ -154,6 +155,18 @@ function IconSettings(props: SVGProps) {
   );
 }
 
+function IconRight(props: SVGProps) {
+  const fill = iconColor(props.fill, props.iconType);
+  const size = sizeToFontSize(props.size);
+  const margin = setMargin(props.position);
+
+  return (
+    <StyledSvgIcon size={props.size} margin={margin}>
+      <Right fill={fill} width={size} height={size} />
+    </StyledSvgIcon>
+  );
+}
+
 export {
   IconCheck,
   IconDelete,
@@ -165,4 +178,5 @@ export {
   IconNotification,
   IconSearch,
   IconSettings,
+  IconRight,
 };
