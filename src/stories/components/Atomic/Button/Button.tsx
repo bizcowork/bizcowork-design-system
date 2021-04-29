@@ -51,7 +51,7 @@ const StyledButton = styled.button<{
   &:hover {
     cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
     background: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.colors.hover)};
-    border-color: ${(props) => (props.isDisabled ? props.theme.colors.disabled : props.figure.colors.hover)};
+    border-color: ${(props) => (props.isDisabled ? props.theme.colors.disabled : props.figure.border.borderColor)};
   }
 
   &:active {

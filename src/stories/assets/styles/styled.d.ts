@@ -16,6 +16,7 @@ declare module 'styled-components' {
 }
 
 interface colors {
+  primary50: string;
   primary100: string;
   primary200: string;
   primary300: string;
@@ -26,6 +27,7 @@ interface colors {
   primary800: string;
   primary900: string;
 
+  secondary50: string;
   secondary100: string;
   secondary200: string;
   secondary300: string;
@@ -36,6 +38,7 @@ interface colors {
   secondary800: string;
   secondary900: string;
 
+  mono50: string;
   mono100: string;
   mono200: string;
   mono300: string;

@@ -14,8 +14,8 @@ export const setButtonFigure = (
       figure = {
         colors: {
           enabled: theme.colors[color].tone500,
-          hover: theme.colors[color].tone400,
-          active: theme.colors[color].tone600,
+          hover: theme.colors[color].tone600,
+          active: theme.colors[color].tone400,
           disabled: theme.colors[color].tone200,
           lightFontColor: theme.colors['mono'].tone100,
           darkFontColor: theme.colors[color].tone500,
@@ -34,7 +34,7 @@ export const setButtonFigure = (
       figure = {
         colors: {
           enabled: theme.colors['blackWhite'].white,
-          hover: theme.colors['mono'].tone100,
+          hover: theme.colors[color].tone50,
           active: theme.colors['blackWhite'].white,
           disabled: theme.colors['mono'].tone100,
           lightFontColor: theme.colors[color].tone500,
@@ -54,7 +54,7 @@ export const setButtonFigure = (
       figure = {
         colors: {
           enabled: theme.colors['blackWhite'].white,
-          hover: theme.colors['mono'].tone100,
+          hover: theme.colors[color].tone50,
           active: theme.colors['blackWhite'].white,
           disabled: theme.colors['mono'].tone100,
           lightFontColor: theme.colors[color].tone500,
@@ -74,8 +74,8 @@ export const setButtonFigure = (
       figure = {
         colors: {
           enabled: theme.colors[color].tone500,
-          hover: theme.colors[color].tone400,
-          active: theme.colors[color].tone600,
+          hover: theme.colors[color].tone600,
+          active: theme.colors[color].tone400,
           disabled: theme.colors[color].tone200,
           lightFontColor: theme.colors['mono'].tone100,
           darkFontColor: theme.colors[color].tone500,

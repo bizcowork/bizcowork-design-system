@@ -40,7 +40,7 @@ const StyledButton = styled.button<{
   text-align: center;
 
   /* vertical-align: middle; */
-  display: ${(props) => (props.figure.type !== 'block' ? 'flex' : 'block')};
+  display: ${(props) => 'flex'};
   align-items: center;
   justify-content: center;
 
@@ -66,7 +66,7 @@ const StyledButton = styled.button<{
   &:hover {
     cursor: ${(props) => (props.isDisabled ? 'not-allowed' : 'pointer')};
     background: ${(props) => (props.isDisabled ? props.figure.colors.disabled : props.figure.colors.hover)};
-    border-color: ${(props) => (props.isDisabled ? props.theme.colors.disabled : props.figure.colors.hover)};
+    border-color: ${(props) => (props.isDisabled ? props.theme.colors.disabled : props.figure.border.borderColor)};
   }
 
   &:active {
