@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import { IconMoreHoriz, SVGProps } from './Icons';
+import { IconMoreHoriz, SVGProps } from './icons';
 export default {
   title: 'Icons/Icon',
   component: IconMoreHoriz,

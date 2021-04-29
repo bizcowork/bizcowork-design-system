@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import { IconDelete, SVGProps } from './Icons';
+import { IconDelete, SVGProps } from './icons';
 export default {
   title: 'Icons/Icon',
   component: IconDelete,

@@ -1,19 +1,21 @@
 import { useEffect, useRef, useState, useCallback, MutableRefObject, Ref } from 'react';
 import { calcRem } from 'utils/functions/calcFuntions';
 import theme from 'assets/styles/theme';
-import { size, colors, horizontalMargin } from 'utils/types/literalTypes';
+import { size, colors, horizontalMargin, buttonType } from 'utils/types/literalTypes';
 import {
-  Check,
-  Delete,
-  Description,
-  Help,
-  Home,
-  Info,
-  MoreHoriz,
-  Notification,
-  Search,
-  Settings,
-} from 'atomic/Icon/iconList';
+  IconCheck,
+  IconDelete,
+  IconDescription,
+  IconHelp,
+  IconHome,
+  IconInfo,
+  IconMoreHoriz,
+  IconNotification,
+  IconSearch,
+  IconSettings,
+  SVGProps,
+} from 'components/atomic/Icon/icons';
+import { JsxElement } from 'typescript';
 
 export function sizeToFontSize(size: 'small' | 'default' | 'large' | 'hulk') {
   // 20, 24, 32, 40
@@ -113,14 +115,36 @@ export const iconColor = (
   }
 };
 
-export function setSvgIcon(name: string) {
+export function getSVGIcon(
+  name: string,
+  // props: SVGProps,
+  fill: colors,
+  size: size,
+  position: horizontalMargin,
+  iconType: buttonType,
+): JSX.Element {
   switch (name) {
-    case 'home':
-      console.log(name);
-      return Home;
+    case 'check':
+      return IconCheck({ fill, size, position, iconType });
     case 'delete':
-      return Delete;
+      return IconInfo({ fill, size, position, iconType });
+    case 'description':
+      return IconDescription({ fill, size, position, iconType });
+    case 'help':
+      return IconHelp({ fill, size, position, iconType });
+    case 'home':
+      return IconHome({ fill, size, position, iconType });
+    case 'info':
+      return IconInfo({ fill, size, position, iconType });
+    case 'moreHoriz':
+      return IconMoreHoriz({ fill, size, position, iconType });
+    case 'notification':
+      return IconNotification({ fill, size, position, iconType });
+    case 'search':
+      return IconSearch({ fill, size, position, iconType });
+    case 'settings':
+      return IconSettings({ fill, size, position, iconType });
     default:
-      return Notification;
+      return IconHome({ fill, size, position, iconType });
   }
 }

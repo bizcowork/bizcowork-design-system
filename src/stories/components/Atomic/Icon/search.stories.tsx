@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import { IconSearch, SVGProps } from './Icons';
+import { IconSearch, SVGProps } from './icons';
 export default {
   title: 'Icons/Icon',
   component: IconSearch,

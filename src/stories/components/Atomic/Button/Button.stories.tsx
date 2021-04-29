@@ -10,12 +10,11 @@ export default {
 } as Meta;
 
 const Template: Story<ButtonProps> = (args) => <Button {...args} />;
-const buttonIcon = {
-  // iconSrc: home,
-  isLeft: true,
-};
 export const NormalButton = Template.bind({});
 NormalButton.args = {
-  // label: '테스트 버튼 입니다',
+  label: 'Button',
+  colors: 'primary',
   size: 'hulk',
+  type: 'default',
+  isDisabled: false,
 };

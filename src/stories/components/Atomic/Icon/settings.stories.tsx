@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import { IconSettings, SVGProps } from './Icons';
+import { IconSettings, SVGProps } from './icons';
 export default {
   title: 'Icons/Icon',
   component: IconSettings,

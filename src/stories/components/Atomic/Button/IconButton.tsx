@@ -3,13 +3,28 @@ import { calcBorderRadius, calcRem } from '../../../utils/functions/calcFuntions
 import { calcSize, setButtonFigure, iconColor } from './buttonFunc';
 import { ButtonSize, ButtonFigure } from './buttonTypes';
 import { size, colors, buttonType, horizontalMargin } from 'utils/types/literalTypes';
+import {
+  Check,
+  Delete,
+  Description,
+  Help,
+  Home,
+  Info,
+  MoreHoriz,
+  Notification,
+  Search,
+  Settings,
+} from 'atomic/Icon/iconList';
+import { getSVGIcon } from '../Icon/iconFunc';
 
-export interface ButtonProps {
+export interface IconButtonProps {
   label?: string;
+  iconName: string;
   type: buttonType;
   colors: colors;
   size: size;
   isDisabled: boolean;
+  iconPosition: horizontalMargin;
   onClick?: () => void;
 }
 
@@ -65,15 +80,18 @@ const StyledButton = styled.button<{
   }
 `;
 
-export function Button(props: ButtonProps) {
+export function IconButton(props: IconButtonProps) {
   const sizeProps = calcSize(props.size);
   const figureProps = setButtonFigure(props.colors, props.type, props.size);
+  const icon = getSVGIcon(props.iconName, props.colors, props.size, props.iconPosition, props.type);
 
   return (
     <StyledButton size={sizeProps} figure={figureProps} isDisabled={props.isDisabled}>
-      {props.label !== '' ? 'Button' : props.label}
+      {props.iconPosition === 'left' && icon}
+      {props.iconPosition === 'only' ? icon : props.label ? props.label : 'Button'}
+      {props.iconPosition === 'right' && icon}
     </StyledButton>
   );
 }
 
-export default Button;
+export default IconButton;

@@ -11,7 +11,7 @@ import {
   Search,
   Settings,
 } from 'atomic/Icon/iconList';
-import { SVGProps } from './Icons';
+import { SVGProps } from './icons';
 
 export const setIcon = (name: string) => {
   switch (name) {

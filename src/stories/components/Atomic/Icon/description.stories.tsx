@@ -1,17 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import {
-  IconCheck,
-  IconDelete,
-  IconDescription,
-  IconHelp,
-  IconHome,
-  IconInfo,
-  IconMoreHoriz,
-  IconNotification,
-  IconSearch,
-  IconSettings,
-  SVGProps,
-} from './Icons';
+import { IconDescription, SVGProps } from './icons';
 export default {
   title: 'Icons/Icon',
   component: IconDescription,

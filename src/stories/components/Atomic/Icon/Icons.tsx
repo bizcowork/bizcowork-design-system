@@ -13,7 +13,7 @@ import {
   Settings,
 } from 'atomic/Icon/iconList';
 import home from 'assets/static/icons/home.svg';
-import { iconColor, sizeToFontSize, setSvgIcon } from './iconFunc';
+import { iconColor, sizeToFontSize } from './iconFunc';
 import { buttonType, colors } from 'utils/types/literalTypes';
 import { setMargin } from 'utils/functions/calcFuntions';
 
@@ -38,10 +38,9 @@ function IconHome(props: SVGProps) {
   const fill = iconColor(props.fill, props.iconType);
   const size = sizeToFontSize(props.size);
   const margin = setMargin(props.position);
-  const comp = setSvgIcon('home');
 
   return (
-    <StyledSvgIcon size={props.size} margin={margin}>
+    <StyledSvgIcon size={size} margin={margin}>
       <Home fill={fill} width={size} height={size} />
     </StyledSvgIcon>
   );

@@ -92,7 +92,3 @@ interface boxShadow {
 interface calcBorderRadius {
   radius: string;
 }
-
-// interface calcBorder {
-//   border: string;
-// }
