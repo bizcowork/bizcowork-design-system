@@ -1,11 +1,8 @@
 {
+  "extents": "./tsconfig.json",
   "compilerOptions": {
     "target": "es5",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -18,9 +15,17 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": "./",
+    "paths": {
+      "components/*": ["src/stories/components/*"],
+      "utils/*": ["src/stories/utils/*"],
+      "assets/*": ["src/stories/assets/*"],
+      "atomic/*": ["src/stories/components/atomic/*"],
+      "molecules/*": ["src/stories/components/molecules/*"],
+      "organisms/*": ["src/stories/components/organisms/*"],
+      "icons/*": ["src/stories/components/atomic/Icon/*"]
+    }
   },
-  "include": [
-    "src"
-  ]
+  "include": ["src", "tsconfig.json"]
 }

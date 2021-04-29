@@ -1,7 +1,8 @@
 import { DefaultTheme } from 'styled-components';
-import { calcRem, calcBorderRadius as borderRadius } from '../../utils/functions/utils';
+import { calcRem, calcBorderRadius as borderRadius } from '../../utils/functions/calcFuntions';
 
 export const primary = {
+  tone50: '#EBF8FE',
   tone100: '#B3E5FC',
   tone200: '#81D4FA',
   tone300: '#4FC3F7',
@@ -14,6 +15,7 @@ export const primary = {
 };
 
 export const secondary = {
+  tone50: '#FFEFEB',
   tone100: '#FFCCBC',
   tone200: '#FFAB91',
   tone300: '#FF8A65',
@@ -26,6 +28,7 @@ export const secondary = {
 };
 
 export const mono = {
+  tone50: '#FAFAFA',
   tone100: '#F5F5F5',
   tone200: '#EEEEEE',
   tone300: '#E0E0E0',
