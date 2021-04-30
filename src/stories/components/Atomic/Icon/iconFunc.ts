@@ -13,6 +13,8 @@ import {
   IconNotification,
   IconSearch,
   IconSettings,
+  IconRight,
+  IconExpand,
   SVGProps,
 } from 'components/atomic/Icon/icons';
 import { JsxElement } from 'typescript';
@@ -94,10 +96,7 @@ export const setMargin = (position: horizontalMargin) => {
   return margin;
 };
 
-export const iconColor = (
-  color: 'primary' | 'secondary' | 'mono' | 'blackWhite',
-  type: 'default' | 'outline' | 'inverted' | 'block',
-) => {
+export const iconColor = (color: 'primary' | 'secondary' | 'mono' | 'blackWhite', type: buttonType = 'default') => {
   if (color === 'primary' && (type === 'default' || type === 'block')) {
     return theme.colors.mono.tone100;
   } else if (color === 'primary' && (type === 'outline' || type === 'inverted')) {
@@ -144,6 +143,10 @@ export function getSVGIcon(
       return IconSearch({ fill, size, position, iconType });
     case 'settings':
       return IconSettings({ fill, size, position, iconType });
+    case 'right':
+      return IconRight({ fill, size, position, iconType });
+    case 'expand':
+      return IconExpand({ fill, size, position, iconType });
     default:
       return IconHome({ fill, size, position, iconType });
   }

@@ -10,6 +10,8 @@ import {
   Notification,
   Search,
   Settings,
+  Right,
+  Expand,
 } from 'atomic/Icon/iconList';
 import { SVGProps } from './icons';
 
@@ -35,6 +37,10 @@ export const setIcon = (name: string) => {
       return Search;
     case 'settings':
       return Settings;
+    case 'right':
+      return Right;
+    case 'expand':
+      return Expand;
     default:
       return Home;
   }

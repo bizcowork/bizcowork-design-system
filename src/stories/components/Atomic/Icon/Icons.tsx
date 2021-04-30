@@ -1,21 +1,20 @@
 import styled from 'styled-components';
-import { size, horizontalMargin } from 'utils/types/literalTypes';
+import { buttonType, colors, horizontalMargin, size } from 'utils/types/literalTypes';
 import {
   Check,
   Delete,
   Description,
+  Expand,
   Help,
   Home,
   Info,
   MoreHoriz,
   Notification,
+  Right,
   Search,
   Settings,
-  Right,
 } from 'atomic/Icon/iconList';
-import home from 'assets/static/icons/home.svg';
 import { iconColor, sizeToFontSize } from './iconFunc';
-import { buttonType, colors } from 'utils/types/literalTypes';
 import { setMargin } from 'utils/functions/calcFuntions';
 
 export interface SVGProps {
@@ -167,6 +166,18 @@ function IconRight(props: SVGProps) {
   );
 }
 
+function IconExpand(props: SVGProps) {
+  const fill = iconColor(props.fill, props.iconType);
+  const size = sizeToFontSize(props.size);
+  const margin = setMargin(props.position);
+
+  return (
+    <StyledSvgIcon size={props.size} margin={margin}>
+      <Expand fill={fill} width={size} height={size} />
+    </StyledSvgIcon>
+  );
+}
+
 export {
   IconCheck,
   IconDelete,
@@ -179,4 +190,5 @@ export {
   IconSearch,
   IconSettings,
   IconRight,
+  IconExpand,
 };

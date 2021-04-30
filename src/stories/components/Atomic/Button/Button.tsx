@@ -11,7 +11,7 @@ export interface ButtonProps {
   size: size;
   isDisabled: boolean;
   boxShadow?: boolean;
-  onClick?: () => void;
+  onClick?: (...args: any) => any;
 }
 
 const StyledButton = styled.button<{
@@ -72,7 +72,12 @@ export function Button(props: ButtonProps) {
   const figureProps = setButtonFigure(props.colors, props.type, props.size);
 
   return (
-    <StyledButton size={sizeProps} figure={figureProps} isDisabled={props.isDisabled}>
+    <StyledButton
+      size={sizeProps}
+      figure={figureProps}
+      isDisabled={props.isDisabled}
+      onClick={props.onClick ? props.onClick : undefined}
+    >
       {props.label !== '' ? 'Button' : props.label}
     </StyledButton>
   );

@@ -17,4 +17,7 @@ NormalButton.args = {
   size: 'hulk',
   type: 'default',
   isDisabled: false,
+  onClick: () => {
+    console.log('event');
+  },
 };

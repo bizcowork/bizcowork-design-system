@@ -29,6 +29,8 @@ const StyledBox = styled.div<BoxProps>`
   box-shadow: ${(props) => (props.shadow ? calcBoxShadow(props.shadow) : 'small')};
 `;
 
-export const Box = (props: BoxProps) => {
+const Box = (props: BoxProps) => {
   return <StyledBox {...props} />;
 };
+
+export default Box;

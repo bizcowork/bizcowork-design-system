@@ -1,5 +1,5 @@
 import { Story, Meta } from '@storybook/react';
-import { Box, BoxProps } from './Box';
+import Box, { BoxProps } from './Box';
 import avatarImg from '../assets/static/images/006.png';
 import theme from '../../../assets/styles/theme';
 import { calcBorderRadius, calcBorder } from '../../../utils/functions/calcFuntions';

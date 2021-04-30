@@ -9,5 +9,6 @@ import { ReactComponent as Notification } from 'assets/static/icons/notification
 import { ReactComponent as Search } from 'assets/static/icons/search.svg';
 import { ReactComponent as Settings } from 'assets/static/icons/settings.svg';
 import { ReactComponent as Right } from 'assets/static/icons/chevronRight.svg';
+import { ReactComponent as Expand } from 'assets/static/icons/expandDown.svg';
 
-export { Check, Delete, Description, Help, Home, Info, MoreHoriz, Notification, Search, Settings, Right };
+export { Check, Delete, Description, Help, Home, Info, MoreHoriz, Notification, Search, Settings, Right, Expand };

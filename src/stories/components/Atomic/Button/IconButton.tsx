@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { calcBorderRadius, calcRem } from '../../../utils/functions/calcFuntions';
 import { calcSize, setButtonFigure, iconColor } from './buttonFunc';
+import { ButtonProps } from 'atomic/Button/Button';
 import { ButtonSize, ButtonFigure } from './buttonTypes';
 import { size, colors, buttonType, horizontalMargin } from 'utils/types/literalTypes';
 import {
@@ -17,15 +18,9 @@ import {
 } from 'atomic/Icon/iconList';
 import { getSVGIcon } from '../Icon/iconFunc';
 
-export interface IconButtonProps {
-  label?: string;
+export interface IconButtonProps extends ButtonProps {
   iconName: string;
-  type: buttonType;
-  colors: colors;
-  size: size;
-  isDisabled: boolean;
   iconPosition: horizontalMargin;
-  onClick?: () => void;
 }
 
 const StyledButton = styled.button<{
